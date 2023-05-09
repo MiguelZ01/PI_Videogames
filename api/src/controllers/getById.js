@@ -9,6 +9,21 @@ const getGameById = async (req, res) => {
     const { data } = await axios.get(`${URL}/${id}?key=${API_KEY}`);
     const datavalue = data;
 
+    if (!videogames) {
+      videogames = Videogame.findAll({
+        where: {
+          id: {
+            [Op.iLike]: `%${id}%`,
+          },
+        },
+        include: Genres,
+      });
+
+      if (!videogames) {
+        return res.status(404).send("Not found");
+      }
+    }
+
     const getInfo = {
       id: datavalue.id,
       name: datavalue.name,
