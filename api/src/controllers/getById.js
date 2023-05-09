@@ -7,9 +7,9 @@ const getGameById = async (req, res) => {
     const { id } = req.params;
 
     const { data } = await axios.get(`${URL}/${id}?key=${API_KEY}`);
-    const getInfo = data;
+    const datavalue = data;
 
-    getInfo = {
+    const getInfo = {
       id: datavalue.id,
       name: datavalue.name,
       description: datavalue.description,
@@ -19,9 +19,9 @@ const getGameById = async (req, res) => {
       rating: datavalue.rating,
     };
 
-    return getInfo;
+    return res.status(200).json(getInfo);
   } catch (error) {
-    return "Id not found";
+    return res.status(500).json({ message: error.message });
   }
 };
 
