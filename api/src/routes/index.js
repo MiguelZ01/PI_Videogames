@@ -3,13 +3,13 @@ const router = Router();
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
 
-const characters = require("./characters");
-const genre = require("./genre");
+const Videogames = require("./Videogames");
+const genres = require("./genre");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
 
-router.use("/characters", characters);
-router.use("/genre", genre);
+router.use("/Videogames", Videogames);
+router.use("/genres", genres);
 
 module.exports = router;

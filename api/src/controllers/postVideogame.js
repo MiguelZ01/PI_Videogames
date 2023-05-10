@@ -1,32 +1,29 @@
-const { Videogame, Genres } = require("../db");
+const { Videogame } = require("../db");
 
-const postVideogame = async () => {
+const postVideogame = async (req, res) => {
   try {
-    const { id, name, description, platforms, imagen, date, rating } = req.body;
+    const { name, description, platforms, imagen, date, rating, genres } = req.body;
 
-    if (!name || !description || !platforms || !imagen || !date || !rating) {
+    if (!name || !description || !platforms || !imagen || !date || !rating || !genres) {
       return res.status(401).json({ error: "Faltan datos" });
     }
 
-    const newViedogame = await Videogame.findOrCreate({
+    const [newVideogame, created] = await Videogame.findOrCreate({
       where: {
-        id: id,
         name: name,
         description: description,
         platforms: platforms,
         imagen: imagen,
         date: date,
         rating: rating,
+        genres: genres,
       },
     });
 
-    const created = await Favorite.create(newViedogame);
-
     if (created) {
-      const NewGames = await newViedogame.findAll();
-      return res.status(200).json(NewGames);
+      res.status(200).json(newVideogame);
     } else {
-      return res.status(404).send({ message: "existing Videgame" });
+      res.status(404).send({ message: "existing Videogame" });
     }
   } catch (error) {
     res.status(500).json({ message: error.message });
