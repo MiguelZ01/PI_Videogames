@@ -1,46 +1,56 @@
 require("dotenv").config();
 const axios = require("axios");
-const { Videogame, Genres } = require("../db");
+const { Videogame } = require("../db");
+const { Op } = require("sequelize");
 const URL = process.env.URL;
 const API_KEY = process.env.API_KEY;
-const { Op } = require("sequelize");
 
 const getGameByName = async (req, res) => {
   try {
     const name = req.query.name.toLowerCase();
 
+    const DBvideogames = await Videogame.findAll({
+      where: {
+        name: {
+          [Op.iLike]: `%${name}%`,
+        },
+      },
+    });
+
     const { data } = await axios.get(`${URL}?search=${name}&key=${API_KEY}&page_size=15`);
 
-    const videogames = data.results;
+    const videogamesAPI = data.results.map((game) => ({
+      id: game.id,
+      name: game.name,
+      description: game.description_raw,
+      platforms: JSON.stringify(game.platforms.map((platform) => platform.platform.name)),
+      imagen: game.background_image,
+      date: game.updated,
+      rating: game.rating_top,
+      genres: JSON.stringify(game.genres.map((genre) => genre.name)),
+    }));
 
-    if (!videogames) {
-      const dbVideogames = Videogame.findAll({
-        where: {
-          name: {
-            [Op.iLike]: `%${name}%`,
-          },
-        },
-        include: Genres,
-      });
-
-      if (!dbVideogames.length) {
-        return res.status(404).send("Videogame not found");
-      }
-    }
-
-    const FoundGame = videogames.map((game) => ({
+    const videogamesDB = DBvideogames.map((game) => ({
       id: game.id,
       name: game.name,
       description: game.description,
-      plataformas: game.plataformas,
+      platforms: game.platforms,
       imagen: game.imagen,
       date: game.date,
       rating: game.rating,
+      genres: game.genres,
     }));
 
-    res.status(200).json(FoundGame);
+    const allVideogames = [...videogamesAPI, ...videogamesDB];
+
+    if (allVideogames.length === 0) {
+      res.status(404).send("No videogames with that name were found.");
+      return;
+    }
+
+    res.status(200).json(allVideogames);
   } catch (error) {
-    return res.status(500).json({ message: error.message });
+    res.status(500).json({ message: error.message });
   }
 };
 

@@ -4,7 +4,7 @@ const router = Router();
 // Ejemplo: const authRouter = require('./auth.js');
 
 const Videogames = require("./Videogames");
-const genres = require("./genre");
+const genres = require("./genres");
 
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);

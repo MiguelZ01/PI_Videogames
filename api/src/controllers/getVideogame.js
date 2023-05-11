@@ -18,17 +18,18 @@ const getGames = async (req, res) => {
 
     answers.forEach((answer) => {
       const results = answer.data.results;
-      if (!results) res.status(404).send("no videogames found");
+      if (!results) res.status(404).send("Videogame not found");
 
       results.forEach((datavalue) => {
         const videogame = {
           id: datavalue.id,
           name: datavalue.name,
-          description: datavalue.description,
-          plataformas: datavalue.platforms.map((plataform) => plataform.platform.name),
-          fecha: datavalue.released,
-          rating: datavalue.rating,
-          image: datavalue.background_image,
+          description: datavalue.description_raw,
+          platforms: datavalue.platforms.map((platforms) => platforms.platform.name),
+          imagen: datavalue.background_image,
+          date: datavalue.updated,
+          rating: datavalue.rating_top,
+          genres: datavalue.genres.map((genres) => genres.name),
         };
         games.push(videogame);
       });

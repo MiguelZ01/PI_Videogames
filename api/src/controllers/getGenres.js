@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Genres } = require("../db");
 
-const URL_GENRES = process.env.URL;
+const URL_GENRES = process.env.URL_GENRES;
 const KEY = process.env.API_KEY;
 
 const getGenres = async (req, res) => {
@@ -9,7 +9,7 @@ const getGenres = async (req, res) => {
     const DBgenres = await Genres.findAll();
 
     if (!DBgenres.length) {
-      const { data } = await axios.get(`${URL_GENRES}&key=${KEY}`);
+      const { data } = await axios.get(`${URL_GENRES}?key=${KEY}`);
       const genres = data.results;
 
       const Allgenres = genres.map((genre) => {
@@ -19,7 +19,7 @@ const getGenres = async (req, res) => {
         };
       });
       await Genres.bulkCreate(Allgenres);
-      return Allgenres;
+      res.status(200).json(Allgenres);
     }
 
     return DBgenres.map((genre) => {
@@ -29,7 +29,7 @@ const getGenres = async (req, res) => {
       };
     });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    throw Error(error.message);
   }
 };
 
