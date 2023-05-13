@@ -1,17 +1,27 @@
-import "./App.css";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import Home from "./Components/views/Home/Home";
+import Detail from "./Components/views/Detail/Detail";
+import Landing from "./Components/views/Landing/Landing";
+import Nav from "./Components/Nav/Nav";
+
+import { Routes, Route, useLocation } from "react-router-dom";
 
 function App() {
-  return (
-    <div className="App">
-      <h1>Henry Videogames</h1>
-      <Home />
+   const { pathname } = useLocation();
 
-      <Routes>
-        <Route path="/" element={<Landing />} />
-      </Routes>
-    </div>
-  );
+   return (
+      <div className="App">
+         {pathname !== "/" && (
+            <div>
+               <Nav />
+            </div>
+         )}
+         <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/detail/:Id" element={<Detail />} />
+            <Route path="/" element={<Landing />} />
+         </Routes>
+      </div>
+   );
 }
 
 export default App;
