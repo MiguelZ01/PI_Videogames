@@ -1,7 +1,7 @@
 import React from "react";
 import style from './Home.module.css'
 import SearchBar from '../../SearchBar/SearchBar';
-import Card from '../Home/Home'
+import Card from '../../Card/Card'
 
 const Home = ({ onSearch }) => {
 

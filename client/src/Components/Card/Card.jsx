@@ -1,32 +1,32 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { videogameADD } from '../redux/action' // importa la acción videogameADD
 
-const card = () => {
+const Card = () => { // cambia el nombre de la función a Card con mayúscula inicial
     const dispatch = useDispatch();
 
     const videogamesALL = useSelector((state) => state.Videogames)
 
     useEffect(() => {
-        dispatch(videogameADD())
+        dispatch(videogameADD()) // cambia esto para llamar a videogameADD en lugar de la acción
     }, [dispatch])
 
     return (
         <div>
             {
-                videogamesALL.map(({ id, name, imagen }) => {
+                videogamesALL(({ id, name, background_image }) => { // cambia "imagen" a "image"
                     return (
-                        <div>
+                        <div key={id}> {/* agrega una key para cada elemento */}
                             <h3>{id}</h3>
                             <h3>{name}</h3>
-                            <img src={imagen} alt="image not found" />
+                            <h3>{rating}</h3>
+                            <img src={background_image} alt="image not found" />
                         </div>
                     )
-
-
                 })
             }
         </div >
     )
 }
 
-export default card;
+export default Card; // cambia el nombre de la función a Card y exporta con mayúscula inicial
