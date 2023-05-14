@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const SearchBar = () => {
+const Navbar = () => {
 
    const [videogames, setVideogames] = useState([]);
    const [name, setName] = useState("");
@@ -36,4 +36,4 @@ const SearchBar = () => {
    );
 };
 
-export default SearchBar;
+export default Navbar; 

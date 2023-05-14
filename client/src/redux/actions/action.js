@@ -1,12 +1,13 @@
-import { ADD_VIDEOGAME } from "./action-types";
+import { GET_VIDEOGAME } from "./action-types";
 import axios from "axios";
 
-export const videogameADD = () => {
+export const videogameGET = () => {
    const endpoint = "http://localhost:3001/Videogames";
+
    return async (dispatch) => {
       const { data } = await axios.get(endpoint);
       return dispatch({
-         type: ADD_VIDEOGAME,
+         type: GET_VIDEOGAME,
          payload: data,
       });
    };

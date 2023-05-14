@@ -1,7 +1,8 @@
 import Home from "./Components/views/Home/Home";
 import Detail from "./Components/views/Detail/Detail";
 import Landing from "./Components/views/Landing/Landing";
-import Nav from "./Components/Nav/Nav";
+import Create from "./Components/views/Create/Create";
+// import Nav from "./Components/Navbar/Navbar";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -12,13 +13,14 @@ function App() {
       <div className="App">
          {pathname !== "/" && (
             <div>
-               <Nav />
+               <home />
             </div>
          )}
          <Routes>
-            <Route path="/home" element={<Home />} />
-            <Route path="/detail/:Id" element={<Detail />} />
             <Route path="/" element={<Landing />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="/detail/:id" element={<Detail />} />
+            <Route path="/create" element={<Create />} />
          </Routes>
       </div>
    );
