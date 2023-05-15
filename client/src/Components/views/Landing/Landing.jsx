@@ -5,11 +5,13 @@ const Landing = () => {
    const navigate = useNavigate();
 
    return (
-      <div className={style.Principal}>
-         <div>
-            <h3>Welcome to this platform!</h3>
-            <div to="/">
-               <button onClick={() => navigate("/home")}>Ingresar</button>
+      <div className={style.fondo}>
+         <div className={style.principal}>
+            <div className={style.landing}>
+               <div to="/" className={style.content}>
+                  <h3>Welcome to this platform!</h3>
+                  <button onClick={() => navigate("/home")} className={style.btn}><span></span>Ingresar</button>
+               </div>
             </div>
          </div>
       </div>

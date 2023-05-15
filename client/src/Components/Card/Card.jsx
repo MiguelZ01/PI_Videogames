@@ -1,26 +1,31 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { videogameGET } from '../../redux/actions/action' // importa la acción videogameADD
+import { videogameGET, limpiado } from '../../redux/actions/action'
+import { NavLink } from 'react-router-dom';
+import style from './Card.module.css';
 
-const Card = () => { // cambia el nombre de la función a Card con mayúscula inicial
+const Card = () => {
     const dispatch = useDispatch();
 
-    const videogamesALL = useSelector((state) => state.Videogames)
+    const Allvideogames = useSelector((state) => state.videogames)
 
     useEffect(() => {
-        dispatch(videogameGET()) // cambia esto para llamar a videogameADD en lugar de la acción
+        dispatch(videogameGET())
+        // return () => {
+        //     dispatch(limpiado())
+        // }
     }, [dispatch])
 
     return (
         <div>
             {
-                videogamesALL.map(({ id, name, background_image, rating }) => { // cambia "imagen" a "image"
+                Allvideogames.map(({ id, name, imagen, rating }) => {
                     return (
-                        <div key={id}> {/* agrega una key para cada elemento */}
+                        <div className={style.principal}  >
+                            <h3><NavLink to={`/detail/${id}`}>{name}</NavLink></h3>
                             <h3>{id}</h3>
-                            <h3>{name}</h3>
                             <h3>{rating}</h3>
-                            <img src={background_image} alt="image not found" />
+                            <img src={imagen} alt="image not found" className={style.imagen} />
                         </div>
                     )
                 })
@@ -29,4 +34,4 @@ const Card = () => { // cambia el nombre de la función a Card con mayúscula in
     )
 }
 
-export default Card; // cambia el nombre de la función a Card y exporta con mayúscula inicial
+export default Card;

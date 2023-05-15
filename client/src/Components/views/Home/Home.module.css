@@ -1,12 +1,9 @@
 .principal {
-   width: 100%;
-   display: grid;
+   display: flex;
    justify-content: center;
-   align-items: center;
    border: 1px solid black;
 }
 
 .search {
-   width: 100%;
    border: 1px solid black;
 }

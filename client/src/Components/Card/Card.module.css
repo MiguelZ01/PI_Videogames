@@ -1,0 +1,9 @@
+.principal {
+   text-align: center;
+}
+
+.imagen {
+   width: 400px;
+   display: flex;
+   text-align: center;
+}

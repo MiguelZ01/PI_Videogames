@@ -1,8 +1,15 @@
-import { GET_VIDEOGAME } from "../actions/action-types";
+import {
+   GET_VIDEOGAME,
+   GET_NAME,
+   NEXT_PAGE,
+   PREV_PAGE,
+   HANDLE_NUMBER,
+   CLEAN,
+} from "../actions/action-types";
 
 let initialState = {
    videogames: [],
-   videogames2nd: [],
+   videogamesTwo: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,8 +18,37 @@ const reducer = (state = initialState, action) => {
          return {
             ...state,
             videogames: action.payload,
-            // videogames2nd: [...state.videogames, action.payload],
+            videogamesTwo: action.payload,
          };
+
+      case GET_NAME:
+         return {
+            ...state,
+            videogames: action.payload,
+            videogamesTwo: action.payload,
+         };
+
+      // case CLEAN:
+      //    return {
+      //       videogames: action.payload,
+      //    };
+
+      // case NEXT_PAGE:
+      //    return {
+      //       ...state,
+      //       numPage: state.numPage + 1,
+      //    };
+      // case PREV_PAGE:
+      //    return {
+      //       ...state,
+      //       numPage: state.numPage - 1,
+      //    };
+      // case HANDLE_NUMBER:
+      //    return {
+      //       ...state,
+      //       numPage: action.payload,
+      //    };
+
       default:
          return { ...state };
    }

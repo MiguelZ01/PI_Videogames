@@ -1,39 +1,29 @@
 import { useState } from "react";
-import axios from "axios";
+import style from './Navbar.module.css';
+import { GetByName } from '../../redux/actions/action';
+import { useDispatch } from 'react-redux';
 
 const Navbar = () => {
 
-   const [videogames, setVideogames] = useState([]);
-   const [name, setName] = useState("");
+    const dispatch = useDispatch();
+    const [search, setSearch] = useState("");
 
-   const handleChange = (event) => {
-      setName(event.target.value);
-   };
+    const handleChange = (event) => {
+        setSearch(event.target.value);
+    };
 
-   const onSearch = async (name) => {
+    const handleSubmit = () => {
+        dispatch(GetByName(search))
+    };
 
-      try {
-         const { data } = await axios(`http://localhost:3001/Videogames/name/?name=${name}`);
-
-         setVideogames((videog) => [...videog, data]);
-      } catch (error) {
-         window.alert("¡No hay personajes con este nombre!");
-      }
-   };
-
-   return (
-      <div>
-         <input type="search" onChange={handleChange} value={name} />
-         <div>
-            <button onClick={() => { onSearch(name); setName(""); }}> ADD </button>
-         </div>
-         <ul>
-            {videogames.map((videogame) => (
-               <li key={videogame.name}>{videogame.name}</li>
-            ))}
-         </ul>
-      </div>
-   );
-};
+    return (
+        <div className={style.wrapper}>
+            <input type="search" onChange={handleChange} value={search} className={style.textInput} />
+            <div>
+                <button onClick={() => { handleSubmit() }} className={style.boton}> BUSCAR </button>
+            </div>
+        </div>
+    );
+}
 
 export default Navbar; 

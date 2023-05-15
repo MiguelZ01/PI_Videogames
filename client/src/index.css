@@ -7,13 +7,26 @@
    font-family: "Oswald", sans-serif;
 }
 
-body {
-   background: #ccc;
-
-   background-size: 100%;
-   background-attachment: fixed;
-   background-repeat: no-repeat;
+/* @property --rotate {
+   syntax: "<angle>";
+   initial-value: 0deg;
+   inherits: false;
 }
+
+body {
+   background-image: conic-gradient(from var(--rotate), #233d47, #fff 50%);
+   animation: effectBg 5s linear infinite;
+   background-attachment: fixed;
+}
+
+@keyframes effectBg {
+   from {
+      --rotate: 0deg;
+   }
+   to {
+      --rotate: -360deg;
+   }
+} */
 
 code {
    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;

@@ -1,16 +1,17 @@
 import React from "react";
-import style from './Home.module.css'
+import style from './Home.module.css';
 import Navbar from '../../Navbar/Navbar';
-import Cards from '../../Cards/Cards'
+import Card from '../../Card/Card';
+import Paginate from "../../Paginate/Paginate";
 
-const Home = ({ onSearch }) => {
+const Home = () => {
 
   return (
     <div className={style.principal}>
       <div className={style.search}>
-        <Navbar onSearch={onSearch} className={style.SearchBar} />
-        {/* <Cards /> */}
-
+        <Navbar />
+        <Card />
+        {/* <Paginate /> */}
       </div>
     </div>
   )
