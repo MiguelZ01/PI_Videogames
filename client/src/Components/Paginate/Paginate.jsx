@@ -1,43 +1,45 @@
-// import React from "react";
-// import style from "./Paginate.module.css";
-// import { useDispatch, useSelector } from "react-redux";
-// import { nextPage, prevPage, handleNumber } from "../../redux/actions/action";
+import React, { useState } from "react";
+import style from "./Paginate.module.css";
+import { videogameGET } from "../../redux/actions/action";
+import { useDispatch, useSelector } from "react-redux";
+import { nextPage, prevPage, handleNumber } from "../../redux/actions/action";
 
-// const Paginate = ({ cantPages }) => {
+const Paginate = ({ pagina, setPagina, maximo }) => {
 
-//     const { numPage } = useSelector((state) => state)
-//     const dispatch = useDispatch();
 
-//     const next = () => {
-//         dispatch(nextPage());
-//     }
+    const { numPage } = useSelector((state) => state)
+    const dispatch = useDispatch();
 
-//     const prev = () => {
-//         dispatch(prevPage());
-//     }
+    // const next = () => {
+    //     dispatch(nextPage());
+    // }
 
-//     const number = (n) => {
-//         dispatch(handleNumber(n));
-//     }
+    // const prev = () => {
+    //     dispatch(prevPage());
+    // }
 
-//     return (
-//         <div>
-//             {
-//                 numPage > 1 ? (<div>
-//                     <button onClick={prev}>PREV</button>
-//                     <p>{numPage - 1}</p>
-//                 </div>) : null
-//             }
+    // const number = (n) => {
+    //     dispatch(handleNumber(n));
+    // }
 
-//             <h3>{numPage}</h3>
-//             {numPage < cantPages ? (
-//                 <div>
-//                     <p>{numPage + 1}</p>
-//                     <button onClick={next}>NEXT</button>
-//                 </div>
-//             ) : null}
-//         </div>
-//     )
-// }
+    return (
+        <div>
+            {/* {
+                numPage > 1 ? (<div>
+                    <button onClick={prev}>PREV</button>
+                    <p>{numPage - 1}</p>
+                </div>) : null
+            }
 
-// export default Paginate
+            <h3>{numPage}</h3>
+            {numPage < cantPages ? (
+                <div>
+                    <p>{numPage + 1}</p>
+                    <button onClick={next}>NEXT</button>
+                </div>
+            ) : null} */}
+        </div>
+    )
+}
+
+export default Paginate

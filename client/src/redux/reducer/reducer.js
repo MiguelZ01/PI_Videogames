@@ -4,7 +4,7 @@ import {
    NEXT_PAGE,
    PREV_PAGE,
    HANDLE_NUMBER,
-   CLEAN,
+   UNMOUNT_COMPONENT,
 } from "../actions/action-types";
 
 let initialState = {
@@ -28,10 +28,11 @@ const reducer = (state = initialState, action) => {
             videogamesTwo: action.payload,
          };
 
-      // case CLEAN:
-      //    return {
-      //       videogames: action.payload,
-      //    };
+      case UNMOUNT_COMPONENT:
+         return {
+            ...state,
+            isComponentMounted: false,
+         };
 
       // case NEXT_PAGE:
       //    return {

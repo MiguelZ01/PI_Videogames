@@ -6,7 +6,7 @@ import {
    // PREV_PAGE,
    // NEXT_PAGE,
    // HANDLE_NUMBER,
-   // CLEAN,
+   UNMOUNT_COMPONENT,
 } from "./action-types";
 import axios from "axios";
 
@@ -34,14 +34,11 @@ export const GET_detail = (id) => {
    };
 };
 
-// export const limpiado = () => {
-//    return async (dispatch) => {
-//       return dispatch({
-//          type: CLEAN,
-//          payload: [],
-//       });
-//    };
-// };
+export const desmontaje = () => {
+   return {
+      type: UNMOUNT_COMPONENT,
+   };
+};
 
 export const GetByName = (name) => {
    const endpoint = `http://localhost:3001/Videogames/name/?name=${name}`;
