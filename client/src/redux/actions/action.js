@@ -6,7 +6,6 @@ import {
    // PREV_PAGE,
    // NEXT_PAGE,
    // HANDLE_NUMBER,
-   UNMOUNT_COMPONENT,
 } from "./action-types";
 import axios from "axios";
 
@@ -31,12 +30,6 @@ export const GET_detail = (id) => {
          type: GET_DETAIL,
          payload: data,
       });
-   };
-};
-
-export const desmontaje = () => {
-   return {
-      type: UNMOUNT_COMPONENT,
    };
 };
 

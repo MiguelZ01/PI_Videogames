@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { videogameGET, desmontaje } from '../../redux/actions/action'
+import { videogameGET } from '../../redux/actions/action'
 import { NavLink } from 'react-router-dom';
 import style from './Card.module.css';
 
