@@ -1,7 +1,7 @@
-import { useState } from "react";
 import style from './Home.module.css';
 import Navbar from '../../Navbar/Navbar';
 import Card from '../../Card/Card';
+import Filter from "../../Filter/Filter";
 
 const Home = () => {
 
@@ -9,8 +9,8 @@ const Home = () => {
     <div className={style.principal}>
       <div className={style.search}>
         <Navbar />
+        <Filter />
         <Card />
-
       </div>
     </div>
   )

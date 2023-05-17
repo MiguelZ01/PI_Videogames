@@ -1,14 +1,17 @@
 import {
    GET_VIDEOGAME,
    GET_NAME,
-   NEXT_PAGE,
-   PREV_PAGE,
-   HANDLE_NUMBER,
+   GET_GENRES,
+   GET_DB_API,
+   FILTER,
+   ORDER_NAME,
+   ORDER_RATING,
 } from "../actions/action-types";
 
 let initialState = {
    videogames: [],
    videogamesTwo: [],
+   genres: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,21 +30,42 @@ const reducer = (state = initialState, action) => {
             videogamesTwo: action.payload,
          };
 
-      // case NEXT_PAGE:
-      //    return {
-      //       ...state,
-      //       numPage: state.numPage + 1,
-      //    };
-      // case PREV_PAGE:
-      //    return {
-      //       ...state,
-      //       numPage: state.numPage - 1,
-      //    };
-      // case HANDLE_NUMBER:
-      //    return {
-      //       ...state,
-      //       numPage: action.payload,
-      //    };
+      case GET_GENRES:
+         return {
+            ...state,
+            genres: action.payload,
+         };
+
+      case FILTER:
+         return {
+            ...state,
+            filter: action.payload,
+         };
+
+      case ORDER_NAME:
+         return {
+            ...state,
+            videogames: action.payload,
+         };
+
+      case ORDER_RATING:
+         return {
+            ...state,
+            videogames: action.payload,
+         };
+
+      case GET_DB_API:
+         const allGames = state.videogames;
+         const filterId =
+            action.payload === "DB"
+               ? allGames.filter((el) => typeof el.id === "string")
+               : action.payload === "API"
+               ? state.videogames
+               : allGames.filter((el) => typeof el.id === "number");
+         return {
+            ...state,
+            videogamesTwo: filterId,
+         };
 
       default:
          return { ...state };

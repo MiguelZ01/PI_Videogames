@@ -9,11 +9,17 @@ const Card = () => {
     const [pagina, setPagina] = useState(1);
     const [porPagina, setPorPagina] = useState(6)
 
-    const maximo = videogameGET.length / porPagina;
+    const Allvideogames = useSelector((state) => state.videogamesTwo)
+    const maximo = Allvideogames.length / porPagina;
+
+    const filter = useSelector((state) => state.filter);
+
+    let displayedVideogames = Allvideogames;
+    if (filter) {
+        displayedVideogames = filter;
+    }
 
     const dispatch = useDispatch();
-
-    const Allvideogames = useSelector((state) => state.videogames)
 
     useEffect(() => {
         dispatch(videogameGET())
@@ -21,9 +27,11 @@ const Card = () => {
 
     return (
         <div>
+            <Paginate pagina={pagina} setPagina={setPagina} maximo={maximo} />
+
             {
-                Allvideogames
-                    .slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina)
+                displayedVideogames
+                    ?.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina)
                     .map(({ id, name, imagen, rating }) => {
                         return (
                             <div className={style.principal} key={id}>
@@ -35,7 +43,6 @@ const Card = () => {
                         )
                     })
             }
-            <Paginate pagina={pagina} setPagina={setPagina} maximo={maximo} />
         </div >
     )
 }
