@@ -9,7 +9,7 @@ const Card = () => {
     const [pagina, setPagina] = useState(1);
     const [porPagina, setPorPagina] = useState(6)
 
-    const Allvideogames = useSelector((state) => state.videogamesTwo)
+    const Allvideogames = useSelector((state) => state.videogames)
     const maximo = Allvideogames.length / porPagina;
 
     const filter = useSelector((state) => state.filter);

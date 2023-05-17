@@ -55,16 +55,9 @@ const reducer = (state = initialState, action) => {
          };
 
       case GET_DB_API:
-         const allGames = state.videogames;
-         const filterId =
-            action.payload === "DB"
-               ? allGames.filter((el) => typeof el.id === "string")
-               : action.payload === "API"
-               ? state.videogames
-               : allGames.filter((el) => typeof el.id === "number");
          return {
             ...state,
-            videogamesTwo: filterId,
+            videogames: action.payload,
          };
 
       default:

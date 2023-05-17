@@ -63,6 +63,7 @@ export const filter = (genre) => {
 
    return async (dispatch) => {
       const { data } = await axios.get(endpoint);
+
       if (genre === "GENRES") {
          return dispatch({
             type: FILTER,
@@ -83,12 +84,6 @@ export function DBorAPI(event) {
 
    return async (dispatch) => {
       const { data } = await axios.get(endpoint);
-      if (event === "TYPES") {
-         dispatch({
-            type: GET_DB_API,
-            payload: data,
-         });
-      }
       if (event === "ALL") {
          return dispatch({
             type: GET_DB_API,
@@ -96,15 +91,18 @@ export function DBorAPI(event) {
          });
       }
       if (event === "API") {
+         const gamesAPI = data?.filter((game) => typeof game.id === "number");
          return dispatch({
             type: GET_DB_API,
-            payload: data,
+            payload: gamesAPI,
          });
       }
       if (event === "DB") {
+         const gamesDB = data?.filter((game) => typeof game.id === "string");
+         // console.log(gamesDB);
          return dispatch({
             type: GET_DB_API,
-            payload: data,
+            payload: gamesDB,
          });
       }
    };
@@ -142,19 +140,22 @@ export const ORDER_RATINGS = (order) => {
 
    return async (dispatch) => {
       const { data } = await axios.get(endpoint);
+
       if (order === "Default") {
          return dispatch({
             type: ORDER_RATING,
             payload: data,
          });
       } else if (order === "5-0") {
-         const ascendente = data.sort((a, b) => a.rating - b.rating);
+         const ascendente = data.sort((a, b) => b.rating - a.rating);
+
          return dispatch({
             type: ORDER_RATING,
             payload: ascendente,
          });
       } else if (order === "0-5") {
-         const descendente = data.sort((a, b) => b.rating - a.rating);
+         const descendente = data.sort((a, b) => a.rating - b.rating);
+
          return dispatch({
             type: ORDER_RATING,
             payload: descendente,

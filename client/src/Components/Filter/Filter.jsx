@@ -66,12 +66,6 @@ const Filter = () => {
                 <option value="5-0">Rating (5-0)</option>
                 <option value="0-5">Rating (0-5)</option>
             </select>
-            <div>
-                {/* <button onClick={onOrderClick}>
-                    Ordenar
-                </button> */}
-            </div>
-
         </div>
     )
 }
