@@ -31,6 +31,8 @@ const Create = () => {
         genres: ''
     })
 
+
+
     const handleSelect = (event) => {
         const genresVG = event.target.value
         if (event.target.checked) {
@@ -51,7 +53,8 @@ const Create = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         dispatch(videogamePOST(videogame));
-        alert('Your videogame has been created!')
+        alert('Asdasdadadsa')
+
     }
 
     const handleChange = (event) => {
@@ -145,7 +148,7 @@ const Create = () => {
                 </div>
                 <div>
                     <button type='submit'
-                        disabled={!videogame.name || !videogame.imagen || !videogame.description || !videogame.platforms || !videogame.date || !videogame.rating || !videogame.genres || errors.name || errors.imagen || errors.description || errors.platforms || errors.date || errors.rating || errors.genres}
+                        disabled={!videogame.name || !videogame.imagen || !videogame.description || !videogame.platforms || !videogame.date || !videogame.rating || select.length === 0 || errors.name || errors.imagen || errors.description || errors.platforms || errors.date || errors.rating}
                     >
                         Create!
                     </button>

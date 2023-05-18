@@ -4,7 +4,7 @@ const postVideogame = async (req, res) => {
    try {
       const result = await Videogame.findOne({ order: [["id", "DESC"]] });
       const lastID = result ? result.id : 960529;
-      let count = lastID + 1;
+      let count = +lastID + 1;
 
       const { name, description, platforms, imagen, date, rating, genres } = req.body;
 

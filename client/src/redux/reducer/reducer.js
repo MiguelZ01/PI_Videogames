@@ -13,6 +13,7 @@ let initialState = {
    videogames: [],
    videogamesTwo: [],
    genres: [],
+   post: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -27,6 +28,7 @@ const reducer = (state = initialState, action) => {
       case POST_VIDEOGAME:
          return {
             ...state,
+            post: action.payload,
          };
 
       case GET_NAME:

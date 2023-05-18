@@ -10,7 +10,7 @@ const Card = () => {
     const [porPagina, setPorPagina] = useState(15)
 
     const Allvideogames = useSelector((state) => state.videogames)
-    const maximo = Allvideogames.length / porPagina;
+    const maximo = Math.ceil(Allvideogames.length / porPagina);
 
     const filter = useSelector((state) => state.filter);
 
@@ -27,7 +27,7 @@ const Card = () => {
 
     return (
         <div>
-            <Paginate pagina={pagina} setPagina={setPagina} maximo={parseInt(maximo)} />
+            <Paginate pagina={pagina} setPagina={setPagina} maximo={maximo} />
 
             {
                 displayedVideogames

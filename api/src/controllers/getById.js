@@ -35,9 +35,7 @@ const getGameById = async (req, res) => {
          genres: JSON.stringify(datavalue.genres.map((genre) => genre.name)),
       };
 
-      const videogameAPI = await Videogame.create(getInfo);
-
-      return res.status(200).json(videogameAPI);
+      return res.status(200).json(getInfo);
    } catch (error) {
       return res.status(500).json({ message: error.message });
    }

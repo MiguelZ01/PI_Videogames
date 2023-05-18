@@ -27,11 +27,6 @@ const validation = (genre) => {
    if (!genre.rating) {
       errors.rating = "Debes indicar su rating";
    }
-
-   if (genre.genres.length === "") {
-      errors.genres = "Debes indicar de que genero sera";
-   }
-
    return errors;
 };
 

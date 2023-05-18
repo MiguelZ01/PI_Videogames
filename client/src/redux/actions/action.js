@@ -33,20 +33,20 @@ export const videogamePOST = (videogame) => {
 
       return async (dispatch) => {
          const { data } = await axios.post(endpoint, videogame);
+         console.log(data);
          return dispatch({
             type: POST_VIDEOGAME,
             payload: data,
          });
       };
    } catch (error) {
-      throw new Error(error);
+      console.log(error);
    }
 };
 
 export const GET_detail = (id) => {
    try {
       const endpoint = `http://localhost:3001/Videogames/${id}`;
-
       return async (dispatch) => {
          const { data } = await axios.get(endpoint);
          return dispatch({
