@@ -7,7 +7,7 @@ import Paginate from "../Paginate/Paginate";
 
 const Card = () => {
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(6)
+    const [porPagina, setPorPagina] = useState(15)
 
     const Allvideogames = useSelector((state) => state.videogames)
     const maximo = Allvideogames.length / porPagina;
@@ -27,7 +27,7 @@ const Card = () => {
 
     return (
         <div>
-            <Paginate pagina={pagina} setPagina={setPagina} maximo={maximo} />
+            <Paginate pagina={pagina} setPagina={setPagina} maximo={parseInt(maximo)} />
 
             {
                 displayedVideogames

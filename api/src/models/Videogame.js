@@ -39,9 +39,8 @@ module.exports = (sequelize) => {
             type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
          },
-         createBy: {
+         created: {
             type: DataTypes.STRING,
-            defaultvalue: "DB",
          },
       },
       { timestamps: false }

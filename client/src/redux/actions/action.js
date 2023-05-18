@@ -71,7 +71,7 @@ export const GetByName = (name) => {
          });
       };
    } catch (error) {
-      throw new Error(error);
+      console.log(error);
    }
 };
 
@@ -129,15 +129,14 @@ export function DBorAPI(event) {
             });
          }
          if (event === "API") {
-            const gamesAPI = data?.filter((game) => typeof game.id === "number");
+            const gamesAPI = data?.filter((game) => game.created === "API");
             return dispatch({
                type: GET_DB_API,
                payload: gamesAPI,
             });
          }
          if (event === "DB") {
-            const gamesDB = data?.filter((game) => typeof game.id === "string");
-            // console.log(gamesDB);
+            const gamesDB = data?.filter((game) => game.created === "DB");
             return dispatch({
                type: GET_DB_API,
                payload: gamesDB,

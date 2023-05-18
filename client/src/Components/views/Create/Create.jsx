@@ -52,7 +52,6 @@ const Create = () => {
         event.preventDefault()
         dispatch(videogamePOST(videogame));
         alert('Your videogame has been created!')
-
     }
 
     const handleChange = (event) => {
@@ -146,7 +145,7 @@ const Create = () => {
                 </div>
                 <div>
                     <button type='submit'
-                        disabled={!videogame.name || !videogame.imagen || !videogame.description || !videogame.platforms || !videogame.date || !videogame.rating}
+                        disabled={!videogame.name || !videogame.imagen || !videogame.description || !videogame.platforms || !videogame.date || !videogame.rating || !videogame.genres || errors.name || errors.imagen || errors.description || errors.platforms || errors.date || errors.rating || errors.genres}
                     >
                         Create!
                     </button>

@@ -32,6 +32,7 @@ const postVideogame = async (req, res) => {
             date,
             rating,
             genres,
+            created: "DB",
          },
       });
 
