@@ -22,7 +22,9 @@ export const videogameGET = () => {
             payload: data,
          });
       };
-   } catch (error) {}
+   } catch (error) {
+      throw new Error(error);
+   }
 };
 
 export const videogamePOST = (videogame) => {
@@ -36,147 +38,177 @@ export const videogamePOST = (videogame) => {
             payload: data,
          });
       };
-   } catch (error) {}
+   } catch (error) {
+      throw new Error(error);
+   }
 };
 
 export const GET_detail = (id) => {
-   const endpoint = `http://localhost:3001/Videogames/${id}`;
+   try {
+      const endpoint = `http://localhost:3001/Videogames/${id}`;
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      return dispatch({
-         type: GET_DETAIL,
-         payload: data,
-      });
-   };
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
+         return dispatch({
+            type: GET_DETAIL,
+            payload: data,
+         });
+      };
+   } catch (error) {
+      throw new Error(error);
+   }
 };
 
 export const GetByName = (name) => {
-   const endpoint = `http://localhost:3001/Videogames/name/?name=${name}`;
+   try {
+      const endpoint = `http://localhost:3001/Videogames/name/?name=${name}`;
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      return dispatch({
-         type: GET_NAME,
-         payload: data,
-      });
-   };
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
+         return dispatch({
+            type: GET_NAME,
+            payload: data,
+         });
+      };
+   } catch (error) {
+      throw new Error(error);
+   }
 };
 
 export const GetGenres = () => {
-   const endpoint = "http://localhost:3001/genres";
+   try {
+      const endpoint = "http://localhost:3001/genres";
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      return dispatch({
-         type: GET_GENRES,
-         payload: data,
-      });
-   };
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
+         return dispatch({
+            type: GET_GENRES,
+            payload: data,
+         });
+      };
+   } catch (error) {
+      throw new Error(error);
+   }
 };
 
 export const filter = (genre) => {
-   const endpoint = "http://localhost:3001/Videogames";
+   try {
+      const endpoint = "http://localhost:3001/Videogames";
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
 
-      if (genre === "GENRES") {
-         return dispatch({
-            type: FILTER,
-            payload: data,
-         });
-      } else {
-         const filteredData = data.filter((game) => game.genres.includes(genre));
-         return dispatch({
-            type: FILTER,
-            payload: filteredData,
-         });
-      }
-   };
+         if (genre === "GENRES") {
+            return dispatch({
+               type: FILTER,
+               payload: data,
+            });
+         } else {
+            const filteredData = data.filter((game) => game.genres.includes(genre));
+            return dispatch({
+               type: FILTER,
+               payload: filteredData,
+            });
+         }
+      };
+   } catch (error) {
+      throw new Error(error);
+   }
 };
 
 export function DBorAPI(event) {
-   const endpoint = "http://localhost:3001/Videogames";
+   try {
+      const endpoint = "http://localhost:3001/Videogames";
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      if (event === "ALL") {
-         return dispatch({
-            type: GET_DB_API,
-            payload: data,
-         });
-      }
-      if (event === "API") {
-         const gamesAPI = data?.filter((game) => typeof game.id === "number");
-         return dispatch({
-            type: GET_DB_API,
-            payload: gamesAPI,
-         });
-      }
-      if (event === "DB") {
-         const gamesDB = data?.filter((game) => typeof game.id === "string");
-         // console.log(gamesDB);
-         return dispatch({
-            type: GET_DB_API,
-            payload: gamesDB,
-         });
-      }
-   };
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
+         if (event === "ALL") {
+            return dispatch({
+               type: GET_DB_API,
+               payload: data,
+            });
+         }
+         if (event === "API") {
+            const gamesAPI = data?.filter((game) => typeof game.id === "number");
+            return dispatch({
+               type: GET_DB_API,
+               payload: gamesAPI,
+            });
+         }
+         if (event === "DB") {
+            const gamesDB = data?.filter((game) => typeof game.id === "string");
+            // console.log(gamesDB);
+            return dispatch({
+               type: GET_DB_API,
+               payload: gamesDB,
+            });
+         }
+      };
+   } catch (error) {
+      throw new Error(error);
+   }
 }
 
 export const ORDER_ALFABETICO = (order) => {
-   const endpoint = "http://localhost:3001/Videogames";
+   try {
+      const endpoint = "http://localhost:3001/Videogames";
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      if (order === "Default") {
-         return dispatch({
-            type: ORDER_NAME,
-            payload: data,
-         });
-      } else if (order === "A-Z") {
-         const ascendente = data.sort((a, b) => a.name.localeCompare(b.name));
-         return dispatch({
-            type: ORDER_NAME,
-            payload: ascendente,
-         });
-      }
-      if (order === "Z-A") {
-         const descendente = data.sort((a, b) => b.name.localeCompare(a.name));
-         return dispatch({
-            type: ORDER_NAME,
-            payload: descendente,
-         });
-      }
-   };
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
+         if (order === "Default") {
+            return dispatch({
+               type: ORDER_NAME,
+               payload: data,
+            });
+         } else if (order === "A-Z") {
+            const ascendente = data.sort((a, b) => a.name.localeCompare(b.name));
+            return dispatch({
+               type: ORDER_NAME,
+               payload: ascendente,
+            });
+         }
+         if (order === "Z-A") {
+            const descendente = data.sort((a, b) => b.name.localeCompare(a.name));
+            return dispatch({
+               type: ORDER_NAME,
+               payload: descendente,
+            });
+         }
+      };
+   } catch (error) {
+      throw new Error(error);
+   }
 };
 
 export const ORDER_RATINGS = (order) => {
-   const endpoint = "http://localhost:3001/Videogames";
+   try {
+      const endpoint = "http://localhost:3001/Videogames";
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
 
-      if (order === "Default") {
-         return dispatch({
-            type: ORDER_RATING,
-            payload: data,
-         });
-      } else if (order === "5-0") {
-         const ascendente = data.sort((a, b) => b.rating - a.rating);
+         if (order === "Default") {
+            return dispatch({
+               type: ORDER_RATING,
+               payload: data,
+            });
+         } else if (order === "5-0") {
+            const ascendente = data.sort((a, b) => b.rating - a.rating);
 
-         return dispatch({
-            type: ORDER_RATING,
-            payload: ascendente,
-         });
-      } else if (order === "0-5") {
-         const descendente = data.sort((a, b) => a.rating - b.rating);
+            return dispatch({
+               type: ORDER_RATING,
+               payload: ascendente,
+            });
+         } else if (order === "0-5") {
+            const descendente = data.sort((a, b) => a.rating - b.rating);
 
-         return dispatch({
-            type: ORDER_RATING,
-            payload: descendente,
-         });
-      }
-   };
+            return dispatch({
+               type: ORDER_RATING,
+               payload: descendente,
+            });
+         }
+      };
+   } catch (error) {
+      throw new Error(error);
+   }
 };
