@@ -35,7 +35,7 @@ const Filter = () => {
             <select name="GENRES" onChange={handleFilter}>
                 {/* <optgroup label='GENRES'></optgroup> */}
                 <option value="GENRES">
-                    GENRES
+                    Genres
                 </option>
 
                 {

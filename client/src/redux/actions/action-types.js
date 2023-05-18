@@ -6,3 +6,4 @@ export const GET_NAME = "GET_NAME";
 export const FILTER = "FILTER";
 export const ORDER_NAME = "ORDER_NAME";
 export const ORDER_RATING = "ORDER_RATING";
+export const POST_VIDEOGAME = "POST_VIDEOGAME";

@@ -44,7 +44,7 @@ const Paginate = ({ pagina, setPagina, maximo }) => {
                     />
                 </svg>
             </button>
-            <input name="page" autoComplete="off" value={input} onKeyDown={(event) => onKeyDown(event)} onChange={(event) => onChange(event)} />
+            <input className={style.input} name="page" autoComplete="off" value={input} onKeyDown={(event) => onKeyDown(event)} onChange={(event) => onChange(event)} />
             <p>de {maximo}</p>
             <button disabled={pagina === Math.ceil(maximo) || pagina > Math.ceil(maximo)} className={style.ButtonPage} onClick={nextPage}>
                 <svg

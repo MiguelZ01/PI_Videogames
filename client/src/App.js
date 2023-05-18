@@ -1,7 +1,7 @@
 import Home from "./Components/views/Home/Home";
 import Detail from "./Components/views/Detail/Detail";
 import Landing from "./Components/views/Landing/Landing";
-// import Create from "./Components/views/Create/Create";
+import Create from "./Components/views/Create/Create";
 
 import { Routes, Route, useLocation } from "react-router-dom";
 
@@ -14,7 +14,7 @@ function App() {
             <Route path="/" element={<Landing />} />
             <Route path="/home" element={<Home />} />
             <Route path="/detail/:id" element={<Detail />} />
-            {/* <Route path="/create" element={<Create />} /> */}
+            <Route path="/create" element={<Create />} />
          </Routes>
       </div>
    );

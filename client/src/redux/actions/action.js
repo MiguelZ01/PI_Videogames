@@ -7,19 +7,36 @@ import {
    FILTER,
    ORDER_NAME,
    ORDER_RATING,
+   POST_VIDEOGAME,
 } from "./action-types";
 import axios from "axios";
 
 export const videogameGET = () => {
-   const endpoint = "http://localhost:3001/Videogames";
+   try {
+      const endpoint = "http://localhost:3001/Videogames";
 
-   return async (dispatch) => {
-      const { data } = await axios.get(endpoint);
-      return dispatch({
-         type: GET_VIDEOGAME,
-         payload: data,
-      });
-   };
+      return async (dispatch) => {
+         const { data } = await axios.get(endpoint);
+         return dispatch({
+            type: GET_VIDEOGAME,
+            payload: data,
+         });
+      };
+   } catch (error) {}
+};
+
+export const videogamePOST = (videogame) => {
+   try {
+      const endpoint = "http://localhost:3001/Videogames";
+
+      return async (dispatch) => {
+         const { data } = await axios.post(endpoint, videogame);
+         return dispatch({
+            type: POST_VIDEOGAME,
+            payload: data,
+         });
+      };
+   } catch (error) {}
 };
 
 export const GET_detail = (id) => {

@@ -6,6 +6,7 @@ import {
    FILTER,
    ORDER_NAME,
    ORDER_RATING,
+   POST_VIDEOGAME,
 } from "../actions/action-types";
 
 let initialState = {
@@ -21,6 +22,11 @@ const reducer = (state = initialState, action) => {
             ...state,
             videogames: action.payload,
             videogamesTwo: action.payload,
+         };
+
+      case POST_VIDEOGAME:
+         return {
+            ...state,
          };
 
       case GET_NAME:

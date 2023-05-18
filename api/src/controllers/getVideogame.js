@@ -32,25 +32,6 @@ const getGames = async (req, res) => {
             };
          });
 
-      // answers.forEach((answer) => {
-      //    const results = answer.data.results;
-      //    if (!results) res.status(404).send("Videogame not found");
-
-      //    results.forEach((datavalue) => {
-      //       const videogame = {
-      //          id: datavalue.id,
-      //          name: datavalue.name,
-      //          description: datavalue.description_raw,
-      //          platforms: datavalue.platforms.map((platforms) => platforms.platform.name),
-      //          imagen: datavalue.background_image,
-      //          date: datavalue.updated,
-      //          rating: datavalue.rating_top,
-      //          genres: datavalue.genres.map((genres) => genres.name),
-      //       };
-      //       games.push(videogame);
-      //    });
-      // });
-
       const uniqueSet = new Set(apiInfo);
       const uniqueArray = Array.from(uniqueSet);
       res.status(200).json(uniqueArray);

@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
       "videogame",
       {
          id: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             primaryKey: true,
          },
@@ -36,7 +36,7 @@ module.exports = (sequelize) => {
             allowNull: false,
          },
          genres: {
-            type: DataTypes.STRING,
+            type: DataTypes.ARRAY(DataTypes.STRING),
             allowNull: false,
          },
          createBy: {
