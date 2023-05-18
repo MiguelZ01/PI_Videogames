@@ -1,18 +1,37 @@
 .principal {
-   margin-top: 6%;
    display: flex;
    justify-content: center;
-   min-height: 400px;
+   height: 100vh;
+}
+
+@property --rotate {
+   syntax: "<angle>";
+   initial-value: 0deg;
+   inherits: false;
 }
 
 .landing {
    display: flex;
    justify-content: center;
    align-items: flex-end;
-   width: 50%;
+   width: 100%;
    border: 1px solid black;
-   padding-bottom: 10px;
+   padding-bottom: 150px;
+
+   background-image: conic-gradient(from var(--rotate), #233d47, #fff 50%);
+   animation: effectBg 5s linear infinite;
+   background-attachment: fixed;
 }
+
+@keyframes effectBg {
+   from {
+      --rotate: 0deg;
+   }
+   to {
+      --rotate: -360deg;
+   }
+}
+
 .btn {
    padding: 12px 2em;
    background: none;

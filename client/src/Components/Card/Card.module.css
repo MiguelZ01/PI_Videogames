@@ -1,9 +1,71 @@
 .principal {
    text-align: center;
+   width: 97%;
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   margin-left: 40px;
 }
 
 .imagen {
-   width: 900px;
+   width: 290px;
+   margin-bottom: 40px;
+}
+
+.card {
+   --bg: #07182e;
+   --hover-bg: #0f4170;
+   --hover-text: #ffffff;
+   width: 300px;
+   height: 400px;
+   margin: 10px;
+   background: var(--bg);
+   padding: 1.5em;
+   border-radius: 8px;
+   position: relative;
+   overflow: hidden;
+   transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1), transform 0.35s ease;
    display: flex;
-   text-align: center;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   gap: 1em;
+}
+
+.card > :not(span) {
+   transition: 0.3s cubic-bezier(0.6, 0.4, 0, 1);
+}
+
+.card > strong {
+   display: block;
+   font-size: 1.4rem;
+   letter-spacing: -0.035em;
+}
+
+.card span {
+   position: absolute;
+   inset: 0;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: var(--hover-text);
+   border-radius: 5px;
+   font-weight: bold;
+   top: 100%;
+   transition: all 0.3s cubic-bezier(0.6, 0.4, 0, 1);
+}
+
+.card:hover span {
+   top: 0;
+   font-size: 1.2em;
+}
+
+.card:hover {
+   background: var(--hover-bg);
+}
+
+.card:hover > div,
+.card:hover > strong {
+   opacity: 0;
 }

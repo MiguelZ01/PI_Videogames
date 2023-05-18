@@ -7,7 +7,7 @@ import Paginate from "../Paginate/Paginate";
 
 const Card = () => {
     const [pagina, setPagina] = useState(1);
-    const [porPagina, setPorPagina] = useState(15)
+    const [porPagina, setPorPagina] = useState(16)
 
     const Allvideogames = useSelector((state) => state.videogames)
     const maximo = Math.ceil(Allvideogames.length / porPagina);
@@ -27,23 +27,39 @@ const Card = () => {
 
     return (
         <div>
-            <Paginate pagina={pagina} setPagina={setPagina} maximo={maximo} />
+            <div className={style.principal}>
 
-            {
-                displayedVideogames
-                    ?.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina)
-                    .map(({ id, name, imagen, rating }) => {
-                        return (
-                            <div className={style.principal} key={id}>
-                                <NavLink to={`/detail/${id}`}><h3>{name}</h3></NavLink>
-                                <h3>{id}</h3>
-                                <h3>{rating}</h3>
-                                <img src={imagen} alt="image not found" className={style.imagen} />
-                            </div>
-                        )
-                    })
-            }
-        </div >
+                {
+                    displayedVideogames
+                        ?.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina)
+                        .map(({ id, name, imagen, rating }) => {
+                            return (
+                                <div className={style.container} key={id}>
+                                    <div className={style.card}>
+                                        <div className={style.front}>
+                                            <img src={imagen} alt="image not found" className={style.imagen} />
+                                            <h3>{name}</h3>
+                                            <h3>{id}</h3>
+                                        </div>
+                                        <div className={style.detail} >
+
+                                        </div>
+                                        <NavLink to={`/detail/${id}`}>
+                                            <span>
+                                                DETAIL
+                                            </span>
+                                        </NavLink>
+                                    </div>
+                                </div>
+                            )
+                        })
+                }
+            </div >
+            <div>
+                <Paginate pagina={pagina} setPagina={setPagina} maximo={maximo} />
+
+            </div>
+        </div>
     )
 }
 

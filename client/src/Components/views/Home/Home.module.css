@@ -1,9 +1,9 @@
 .principal {
-   display: flex;
-   justify-content: center;
-   border: 1px solid black;
+   width: 100%;
+   background: #1e1e1e;
+   color: #ffffff;
 }
 
-.search {
+/* .search {
    border: 1px solid black;
-}
+} */
