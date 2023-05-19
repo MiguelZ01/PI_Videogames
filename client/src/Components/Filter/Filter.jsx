@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetGenres, filter, DBorAPI, ORDER_RATINGS, ORDER_ALFABETICO } from '../../redux/actions/action'
+import style from './Filter.module.css';
+
 
 const Filter = () => {
     const dispatch = useDispatch();
@@ -32,7 +34,7 @@ const Filter = () => {
 
     return (
         <div>
-            <select name="GENRES" onChange={handleFilter}>
+            <select className={style.select} name="GENRES" onChange={handleFilter}>
                 {/* <optgroup label='GENRES'></optgroup> */}
                 <option value="GENRES">
                     Genres
@@ -49,19 +51,19 @@ const Filter = () => {
 
                 }
             </select>
-            <select name="TYPES" onChange={handlefilter}>
+            <select className={style.select} name="TYPES" onChange={handlefilter}>
                 <option value="ALL">ALL</option>
                 <option value="API">API</option>
                 <option value="DB">DB</option>
             </select>
 
-            <select name="ORDER" onChange={handleOrder}>
+            <select className={style.select} name="ORDER" onChange={handleOrder}>
                 <option value="Default">None</option>
                 <option value="A-Z">Name (a-z)</option>
                 <option value="Z-A">Name (z-a)</option>
             </select>
 
-            <select name="ORDER" onChange={handleorder}>
+            <select className={style.select} name="ORDER" onChange={handleorder}>
                 <option value="Default">None</option>
                 <option value="5-0">Rating (5-0)</option>
                 <option value="0-5">Rating (0-5)</option>

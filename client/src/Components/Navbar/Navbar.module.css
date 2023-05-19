@@ -1,43 +1,37 @@
-.control {
-   position: relative;
-   margin: 20px 0 40px;
-   width: 190px;
+.wrapper {
+   display: flex;
+   justify-content: end;
 }
 
-.control input {
+.input {
+   min-height: 50px;
+   max-width: 250px;
+   padding: 0 1rem;
+   color: #fff;
+   font-size: 15px;
+   border: 1px solid #cd4d4d;
+   border-radius: 6px 0 0 6px;
    background-color: transparent;
-   border: 0;
-   border-bottom: 2px #fff solid;
-   display: block;
-   width: 100%;
-   padding: 15px 0;
-   font-size: 18px;
+}
+
+.submit {
+   min-height: 50px;
+   padding: 0.5em 1em;
+   border: none;
+   border-radius: 0 6px 6px 0;
+   background-color: #cd4d4d;
    color: #fff;
+   font-size: 15px;
+   cursor: pointer;
+   transition: background-color 0.3s ease-in-out;
 }
 
-.control input:focus,
-.control input:valid {
-   outline: 0;
-   border-bottom-color: lightblue;
+.submit:hover {
+   background-color: #5e5dcd;
 }
 
-.control label {
-   position: absolute;
-   top: 15px;
-   left: 0;
-   pointer-events: none;
-}
-
-.control label span {
-   display: inline-block;
-   font-size: 18px;
-   min-width: 5px;
-   color: #fff;
-   transition: 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-}
-
-.control input:focus + label span,
-.control input:valid + label span {
-   color: lightblue;
-   transform: translateY(-30px);
+.input:focus,
+.input:focus-visible {
+   border-color: #3898ec;
+   outline: none;
 }

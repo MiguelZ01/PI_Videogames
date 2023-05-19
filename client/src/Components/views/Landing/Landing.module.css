@@ -11,8 +11,8 @@
 }
 
 .landing {
-   display: flex;
-   justify-content: center;
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
    align-items: flex-end;
    width: 100%;
    border: 1px solid black;
@@ -30,6 +30,17 @@
    to {
       --rotate: -360deg;
    }
+}
+
+.content {
+   margin-right: 54px;
+   height: 300px;
+}
+
+.content h3 {
+   text-align: center;
+   font-size: 27px;
+   margin-bottom: 20px;
 }
 
 .btn {
