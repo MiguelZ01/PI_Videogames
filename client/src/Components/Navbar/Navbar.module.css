@@ -4,22 +4,22 @@
 }
 
 .input {
-   min-height: 50px;
-   max-width: 250px;
+   min-height: 45px;
+   width: 350px;
    padding: 0 1rem;
    color: #fff;
    font-size: 15px;
-   border: 1px solid #cd4d4d;
+   border: 1px solid #006fff;
    border-radius: 6px 0 0 6px;
    background-color: transparent;
 }
 
 .submit {
-   min-height: 50px;
-   padding: 0.5em 1em;
+   height: 45px;
+   padding: 0.3em 1em;
    border: none;
    border-radius: 0 6px 6px 0;
-   background-color: #cd4d4d;
+   background-color: #2781f8;
    color: #fff;
    font-size: 15px;
    cursor: pointer;
@@ -27,11 +27,11 @@
 }
 
 .submit:hover {
-   background-color: #5e5dcd;
+   background-color: #46a1f1;
 }
 
 .input:focus,
 .input:focus-visible {
-   border-color: #3898ec;
+   border-color: #46a1f1;
    outline: none;
 }

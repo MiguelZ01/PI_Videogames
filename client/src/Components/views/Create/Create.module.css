@@ -1,4 +1,117 @@
 .principal {
    display: flex;
    justify-content: center;
+   width: 100%;
+   align-items: center;
+   height: 100vh;
+}
+
+.content {
+   margin: 40px 0;
+   width: 60%;
+   background-color: #ccc;
+   padding: 20px;
+   border: 5px solid #444;
+}
+
+.content h3 {
+   margin-bottom: 10px;
+}
+
+.input {
+   --input-focus: #2d8cf0;
+   --font-color: #323232;
+   --font-color-sub: #666;
+   --bg-color: #fff;
+   --main-color: #323232;
+   width: 90%;
+   height: 40px;
+   border-radius: 5px;
+   border: 2px solid var(--main-color);
+   background-color: var(--bg-color);
+   box-shadow: 4px 4px var(--main-color);
+   font-size: 15px;
+   font-weight: 600;
+   color: var(--font-color);
+   padding: 5px 10px;
+   outline: none;
+}
+
+.input::placeholder {
+   color: var(--font-color-sub);
+   opacity: 0.8;
+}
+
+.input:focus {
+   border: 2px solid var(--input-focus);
+}
+
+.genres {
+   display: grid;
+   grid-template-columns: repeat(4, 1fr);
+   margin-bottom: 20px;
+}
+
+.button {
+   position: relative;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   border-radius: 5px;
+   background: linear-gradient(to right, #69b4ff, #006fff);
+   box-shadow: 0px 6px 24px 0px rgba(0, 0, 0, 0.2);
+   overflow: hidden;
+   border: none;
+   cursor: pointer;
+}
+
+.button:after {
+   content: " ";
+   width: 0%;
+   height: 100%;
+   background: #e0ffff;
+   position: absolute;
+   transition: all 0.4s ease-in-out;
+   right: 0;
+}
+
+.link {
+   text-decoration: none;
+}
+
+.button:hover::after {
+   right: auto;
+   left: 0;
+   width: 100%;
+}
+
+.button span {
+   text-align: center;
+   width: 100%;
+   padding: 11px 25px;
+   color: #fff;
+   font-size: 1.125em;
+   letter-spacing: 1px;
+   font-size: 17px;
+   z-index: 20;
+   transition: all 0.3s ease-in-out;
+}
+
+.button:hover span {
+   color: #000000;
+   animation: scaleUp 0.3s ease-in-out;
+}
+
+@keyframes scaleUp {
+   0% {
+      transform: scale(1);
+   }
+
+   50% {
+      transform: scale(0.95);
+   }
+
+   100% {
+      transform: scale(1);
+   }
 }
