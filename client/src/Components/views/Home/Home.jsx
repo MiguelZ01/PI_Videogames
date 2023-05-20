@@ -16,7 +16,7 @@ const Home = () => {
           </div>
           <NavLink to='/create' className={style.link}>
             <button className={style.button}>
-              <span>Create</span>
+              <span>CREATE</span>
             </button>
           </NavLink>
         </div>

@@ -13,7 +13,7 @@
    letter-spacing: 0.05em;
    border-radius: 5px;
    border: none;
-   background: linear-gradient(to right, #69b4ff, #0085ff);
+   background: linear-gradient(to right, #0085ff, #0085ff);
    color: ghostwhite;
    overflow: hidden;
 }

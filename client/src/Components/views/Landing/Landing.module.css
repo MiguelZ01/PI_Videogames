@@ -6,22 +6,24 @@
 
 .card {
    display: flex;
+   justify-content: center;
    align-items: center;
-   margin: 0px auto;
    width: 100%;
+   overflow: hidden;
    height: 100vh;
 }
 
 .landing {
-   position: relative;
+   position: absolute;
    display: flex;
    place-content: center;
    place-items: center;
    overflow: hidden;
    border-radius: 20px;
+   /* margin-left: 200px; */
    align-items: flex-end;
-   width: 70%;
    height: 580px;
+   width: 70%;
    background: #ffffff;
    padding-bottom: 150px;
    background-position: 100%;
@@ -64,7 +66,7 @@
 .img {
    position: relative;
    top: -40px;
-   left: -500px;
+   left: 200px;
 }
 
 /* .landing:hover:before {
@@ -73,7 +75,7 @@
  } */
 
 .content {
-   margin-right: 704px;
+   margin-right: 604px;
    height: 300px;
 }
 

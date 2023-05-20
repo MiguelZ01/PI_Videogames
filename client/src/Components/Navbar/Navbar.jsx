@@ -2,6 +2,8 @@ import { useState } from "react";
 import style from './Navbar.module.css';
 import { GetByName } from '../../redux/actions/action';
 import { useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom';
+
 
 const Navbar = () => {
 
@@ -21,6 +23,11 @@ const Navbar = () => {
             <input type="search" onChange={handleChange} value={search} className={style.input} />
             <div>
                 <button className={style.submit} onClick={() => { handleSubmit() }}> BUSCAR </button>
+                <button className={style.button}>
+                    <NavLink to='/' className={style.logout}>
+                        <span>Log out</span>
+                    </NavLink>
+                </button>
             </div>
         </div >
     );
