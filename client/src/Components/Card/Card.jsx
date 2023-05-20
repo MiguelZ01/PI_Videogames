@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 import style from './Card.module.css';
 import Paginate from "../Paginate/Paginate";
 import Loading from "../Loading/Loading";
-import Nintendo from '../../Assets/Nintendo.png'
+import Nintendo from '../../Assets/Nintendo.png';
 
 const Card = () => {
     const [loading, setLoading] = useState(true);
