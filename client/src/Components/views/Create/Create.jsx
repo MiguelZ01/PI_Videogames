@@ -55,7 +55,7 @@ const Create = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
         dispatch(videogamePOST(videogame));
-        alert('Asdasdadadsa')
+        alert('your videogame has been successfully created.')
 
     }
 
@@ -80,41 +80,29 @@ const Create = () => {
                         onSubmit={handleSubmit}>
                         <h3>Welcome to the creation of your own videogame!</h3>
                         <div>
-                            {/* <label htmlFor="name">
-                            Name:
-                        </label> <br /> */}
                             <input className={style.input} placeholder='Name...' type="text" name='name' value={videogame.name} onChange={handleChange} />
                             {errors.name && <p style={{ color: "red" }} >{errors.name}</p>}
                         </div>
                         <br />
                         <div>
-                            {/* <label htmlFor="imagen">
-                            Imagen:
-                        </label> <br /> */}
-                            <input className={style.input} placeholder='Your prefer image...' type="text" name="imagen" value={videogame.imagen} onChange={handleChange} />
+                            <input className={style.input} placeholder='Image...' type="text" name="imagen" value={videogame.imagen} onChange={handleChange} />
                             {errors.imagen && <p style={{ color: "red" }} >{errors.imagen}</p>}
                         </div>
                         <br />
                         <div>
-                            {/* <label htmlFor="description">
-                            Description:
-                        </label> <br /> */}
-                            <input className={style.input} placeholder='name' type="text" value={videogame.description} name='description' onChange={handleChange} />
+                            <input className={style.input} placeholder='Description...' type="text" value={videogame.description} name='description' onChange={handleChange} />
                             {errors.description && <p style={{ color: "red" }} >{errors.description}</p>}
                         </div>
                         <br />
                         <div>
-                            {/* <label htmlFor="platforms">
-                            Platforms:
-                        </label> <br /> */}
-                            <input className={style.input} placeholder='name' type="text" value={videogame.platforms} name='platforms' onChange={handleChange} />
+                            <input className={style.input} placeholder='Platsform...' type="text" value={videogame.platforms} name='platforms' onChange={handleChange} />
                             {errors.platforms && <p style={{ color: "red" }} >{errors.platforms}</p>}
                         </div>
                         <br />
                         <div>
-                            {/* <label htmlFor="date">
-                            Date:
-                        </label> <br /> */}
+                            <label htmlFor="date">
+                                Date:
+                            </label> <br />
                             <input className={style.input} placeholder='name' type="date" value={videogame.date} name='date' onChange={handleChange} />
                             {errors.date && <p style={{ color: "red" }} >{errors.date}</p>}
                         </div>
@@ -123,7 +111,7 @@ const Create = () => {
                             <label htmlFor="rating">
                                 Rating:
                             </label> <br />
-                            <select className={style.input} placeholder='name' name='rating' value={videogame.rating} onChange={handleChange}>
+                            <select className={style.input} name='rating' value={videogame.rating} onChange={handleChange}>
                                 <option hidden>Select Rating</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>

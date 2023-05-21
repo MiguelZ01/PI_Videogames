@@ -4,6 +4,7 @@
 }
 
 .select {
+   cursor: pointer;
    position: relative;
    font-family: inherit;
    font-weight: 500;
@@ -16,6 +17,15 @@
    background: linear-gradient(to right, #0085ff, #0085ff);
    color: ghostwhite;
    overflow: hidden;
+   appearance: none;
+   padding: 8px;
+   border-radius: 4px;
+}
+
+.select:focus {
+   outline: none;
+   border-color: #999;
+   box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
 }
 
 .select option {

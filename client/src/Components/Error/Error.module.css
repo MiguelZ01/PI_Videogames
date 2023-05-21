@@ -1,0 +1,70 @@
+.error {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
+
+.content {
+   border: 6px solid #ce2a2a;
+   background: #fff;
+   border-radius: 8px;
+   width: 60%;
+}
+
+.content .img {
+   margin: 0px auto;
+   width: 55%;
+   height: 500px;
+   margin: 0px auto;
+}
+
+.content h2 {
+   text-transform: uppercase;
+   text-align: center;
+   margin-top: -40px;
+   margin-bottom: 20px;
+}
+
+.btn {
+   padding: 15px 25px;
+   position: relative;
+   left: 410px;
+   cursor: pointer;
+   border: unset;
+   border-radius: 15px;
+   color: #212121;
+   z-index: 1;
+   background: #e8e8e8;
+   position: relative;
+   font-weight: 1000;
+   font-size: 17px;
+   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   transition: all 250ms;
+   overflow: hidden;
+   margin-bottom: 20px;
+}
+
+.btn::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 0;
+   border-radius: 15px;
+   background-color: #ce2a2a;
+   z-index: -1;
+   -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+   transition: all 250ms;
+}
+
+.btn:hover {
+   color: #e8e8e8;
+}
+
+.btn:hover::before {
+   width: 100%;
+}

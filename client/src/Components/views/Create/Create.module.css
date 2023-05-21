@@ -7,7 +7,7 @@
 }
 
 .border {
-   width: 70%;
+   width: 60%;
    min-height: 700px;
    padding: 5px;
    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
@@ -29,10 +29,10 @@
 
 .input {
    --input-focus: #2d8cf0;
-   --font-color: #323232;
-   --font-color-sub: #666;
+   --font-color: #000000;
+   --font-color-sub: #333333;
    --bg-color: #fff;
-   --main-color: #323232;
+   --main-color: #afafaf;
    width: 90%;
    height: 40px;
    border-radius: 5px;
@@ -59,6 +59,10 @@
    display: grid;
    grid-template-columns: repeat(4, 1fr);
    margin-bottom: 20px;
+}
+
+.genres span input {
+   cursor: pointer;
 }
 
 .button {

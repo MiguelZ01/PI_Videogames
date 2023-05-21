@@ -9,11 +9,11 @@ const Landing = () => {
          <div className={style.card}>
             <div className={style.landing}>
                <div to="/" className={style.content}>
-                  <h3>Welcome to this platform!</h3>
+                  <h3>Welcome to my platform!</h3>
                   <div className={style.text}>
-                     <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Commodi quos voluptatibus voluptates eum, magnam nam id explicabo voluptatum veritatis eos voluptas aliquid minima exercitationem vel praesentium tempore nihil debitis possimus?</p>
+                     <p>I hope you enjoy the content added to this site, it was a great challenge to put together everything needed to create it, have fun!</p>
                   </div>
-                  <button onClick={() => navigate("/home")} className={style.btn}><span></span>Ingresar</button>
+                  <button onClick={() => navigate("/home")} className={style.btn}><span></span>Here we go!</button>
                </div>
             </div>
             <div className={style.img}>

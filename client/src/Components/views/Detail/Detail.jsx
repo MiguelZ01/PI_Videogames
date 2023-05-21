@@ -28,7 +28,7 @@ const Detail = () => {
                     <div className={style.img}>
                         <img src={videogame.imagen} alt="" className={style.imagen} />
                     </div>
-                    <h2>{videogame.name}</h2>
+                    <h1>{videogame.name}</h1>
                     <h3>Id: {videogame.id}</h3>
                     <h3>Rating: {videogame.rating} </h3>
                     <h3>Date: {videogame.date}</h3>
