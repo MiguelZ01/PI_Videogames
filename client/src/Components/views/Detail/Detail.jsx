@@ -33,6 +33,7 @@ const Detail = () => {
                     <h3>Rating: {videogame.rating} </h3>
                     <h3>Date: {videogame.date}</h3>
                     <h3>Genres: {videogame.genres}</h3>
+                    {/* <h3>Genres: {videogame?.genres.join(', ')}</h3> */}
                     <h3>Platforms: {videogame.platforms}</h3>
                     <h3> Description: {videogame.description}</h3>
 

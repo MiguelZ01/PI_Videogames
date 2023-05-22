@@ -28,51 +28,50 @@ export const videogameGET = () => {
 };
 
 export const videogamePOST = (videogame) => {
-   try {
-      const endpoint = "http://localhost:3001/Videogames";
+   const endpoint = "http://localhost:3001/Videogames";
 
-      return async (dispatch) => {
+   return async (dispatch) => {
+      try {
          const { data } = await axios.post(endpoint, videogame);
          console.log(data);
          return dispatch({
             type: POST_VIDEOGAME,
             payload: data,
          });
-      };
-   } catch (error) {
-      console.log(error);
-   }
+      } catch (error) {
+         throw new Error(error.response.data.replace(/^Error:\s*/i, ""));
+      }
+   };
 };
 
 export const GET_detail = (id) => {
-   try {
-      const endpoint = `http://localhost:3001/Videogames/${id}`;
-      return async (dispatch) => {
+   const endpoint = `http://localhost:3001/Videogames/${id}`;
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
          return dispatch({
             type: GET_DETAIL,
             payload: data,
          });
-      };
-   } catch (error) {
-      throw new Error(error);
-   }
+      } catch (error) {
+         window.alert(error.response.data);
+      }
+   };
 };
 
 export const GetByName = (name) => {
-   try {
-      const endpoint = `http://localhost:3001/Videogames/name/?name=${name}`;
-
-      return async (dispatch) => {
+   const endpoint = `http://localhost:3001/Videogames/name/?name=${name}`;
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
          return dispatch({
             type: GET_NAME,
             payload: data,
          });
-      };
-   } catch (error) {
-      console.log(error);
-   }
+      } catch (error) {
+         window.alert(error.response.data);
+      }
+   };
 };
 
 export const GetGenres = () => {

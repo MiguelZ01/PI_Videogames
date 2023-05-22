@@ -52,12 +52,20 @@ const Create = () => {
         }
     }
 
-    const handleSubmit = (event) => {
-        event.preventDefault()
-        dispatch(videogamePOST(videogame));
-        alert('your videogame has been successfully created.')
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        if (Object.values(errors).every((error) => error === '')) {
+            try {
+                await dispatch(videogamePOST(videogame));
+                window.alert('This videogame was created successfully');
+            } catch (error) {
+                const errorMessage = error.toString().replace(/^Error:\s*/i, '');
+                window.alert(errorMessage);
+            }
+        }
+    };
 
-    }
+
 
     const handleChange = (event) => {
         setVideogame({

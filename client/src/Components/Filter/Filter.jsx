@@ -52,21 +52,21 @@ const Filter = () => {
                 }
             </select>
             <select className={styles.select} name="GENRES" onChange={handlefilter}>
-                <option selected="true" disabled="disabled">Videogames</option>
+                <option disabled="disabled">Videogames</option>
                 <option value="ALL">All</option>
                 <option value="API">Existing</option>
                 <option value="DB">Created</option>
             </select>
 
             <select className={styles.select} name="ORDER" onChange={handleOrder}>
-                <option selected="true" disabled="disabled">Alpha</option>
+                <option disabled="disabled">Alpha</option>
                 <option value="Default">None</option>
                 <option value="A-Z">Name (a-z)</option>
                 <option value="Z-A">Name (z-a)</option>
             </select>
 
             <select className={styles.select} name="ORDER" onChange={handleorder}>
-                <option selected="false" disabled="disabled">Rating</option>
+                <option disabled="disabled">Rating</option>
                 <option value="Default">None</option>
                 <option value="5-0">Rating (5-0)</option>
                 <option value="0-5">Rating (0-5)</option>
