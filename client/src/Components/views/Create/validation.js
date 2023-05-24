@@ -2,7 +2,7 @@ const validation = (genre) => {
    const errors = {};
 
    if (genre.name.length < 4 || genre.name.length > 15) {
-      errors.name = "It must be between 4 to 15 characters long.";
+      errors.name = "It must be between 4 to 30 characters long.";
    }
 
    if (!/^https?:\/\//.test(genre.imagen)) {
