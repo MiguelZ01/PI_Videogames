@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { videogameGET } from '../../redux/actions/action'
 import { NavLink } from 'react-router-dom';
@@ -9,6 +9,7 @@ import Nintendo from '../../Assets/Nintendo.png';
 
 const Card = () => {
     const [loading, setLoading] = useState(true);
+
     const [pagina, setPagina] = useState(1);
     const [porPagina, setPorPagina] = useState(15)
 
@@ -29,7 +30,6 @@ const Card = () => {
             .then(() => {
                 setLoading(false)
             }).catch((error) => {
-                console.error(error)
                 setLoading(false)
             })
 
@@ -45,13 +45,13 @@ const Card = () => {
                             {
                                 displayedVideogames
                                     ?.slice((pagina - 1) * porPagina, (pagina - 1) * porPagina + porPagina)
-                                    .map(({ id, name, imagen, rating }) => {
+                                    .map(({ id, name, imagen }) => {
                                         return (
                                             <div className={style.container} key={id}>
                                                 <div className={style.card}>
-                                                    <img src={Nintendo} alt="" className={style.logo} />
+                                                    <img src={Nintendo} alt="Image not found." className={style.logo} />
                                                     <div >
-                                                        <img src={imagen} className={style.imagen} alt="image not found" />
+                                                        <img src={imagen} className={style.imagen} alt="Image not found." />
                                                     </div>
                                                     <div className={style.front}>
                                                         <NavLink to={`/detail/${id}`} className={style.link}>

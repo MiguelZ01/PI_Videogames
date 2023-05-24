@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { GetGenres, filter, DBorAPI, ORDER_RATINGS, ORDER_ALFABETICO } from '../../redux/actions/action'
+import { GetGenres, FilterGenres, DB_API, ORDER_RATINGS, ORDER_ALFABETICO } from '../../redux/actions/action'
 import styles from './Filter.module.css';
 
 
@@ -12,29 +12,29 @@ const Filter = () => {
         dispatch(GetGenres())
     }, [dispatch])
 
-    const handleFilter = (event) => {
+    const handleGenres = (event) => {
         const { value } = event.target;
-        dispatch(filter(value))
+        dispatch(FilterGenres(value))
     }
 
-    const handlefilter = (event) => {
+    const handleLocated = (event) => {
         const { value } = event.target;
-        dispatch(DBorAPI(value))
+        dispatch(DB_API(value))
     }
 
-    const handleOrder = (event) => {
+    const handleName = (event) => {
         const { value } = event.target;
         dispatch(ORDER_ALFABETICO(value))
     }
 
-    const handleorder = (event) => {
+    const handleRating = (event) => {
         const { value } = event.target;
         dispatch(ORDER_RATINGS(value))
     }
 
     return (
-        <div className={styles.content} hover="hover">
-            <select className={styles.select} name="GENRES" onChange={handleFilter}>
+        <div className={styles.content} >
+            <select className={styles.select} name="FILTER" onChange={handleGenres}>
                 <option value="GENRES">
                     Genres
                 </option>
@@ -50,25 +50,25 @@ const Filter = () => {
 
                 }
             </select>
-            <select className={styles.select} name="GENRES" onChange={handlefilter}>
+            <select className={styles.select} name="FILTER" onChange={handleLocated}>
                 <option disabled="disabled">Videogames</option>
                 <option value="ALL">All</option>
                 <option value="API">Existing</option>
                 <option value="DB">Created</option>
             </select>
 
-            <select className={styles.select} name="ORDER" onChange={handleOrder}>
+            <select className={styles.select} name="ORDER" onChange={handleName}>
                 <option disabled="disabled">Alpha</option>
                 <option value="Default">None</option>
-                <option value="A-Z">Name (a-z)</option>
-                <option value="Z-A">Name (z-a)</option>
+                <option value="A-Z">Name A/Z</option>
+                <option value="Z-A">Name Z/A</option>
             </select>
 
-            <select className={styles.select} name="ORDER" onChange={handleorder}>
+            <select className={styles.select} name="ORDER" onChange={handleRating}>
                 <option disabled="disabled">Rating</option>
                 <option value="Default">None</option>
-                <option value="5-0">Rating (5-0)</option>
-                <option value="0-5">Rating (0-5)</option>
+                <option value="5-0">Rating 5-0</option>
+                <option value="0-5">Rating 0-5</option>
             </select>
         </div>
     )

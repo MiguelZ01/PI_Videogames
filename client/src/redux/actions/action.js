@@ -90,7 +90,7 @@ export const GetGenres = () => {
    };
 };
 
-export const filter = (genre) => {
+export const FilterGenres = (genre) => {
    const endpoint = "Videogames";
 
    return async (dispatch) => {
@@ -115,7 +115,7 @@ export const filter = (genre) => {
    };
 };
 
-export function DBorAPI(event) {
+export function DB_API(event) {
    const endpoint = "Videogames";
 
    return async (dispatch) => {
