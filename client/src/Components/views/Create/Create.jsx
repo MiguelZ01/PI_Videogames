@@ -89,22 +89,22 @@ const Create = () => {
                         <h3>Welcome to the creation of your own videogame!</h3>
                         <div>
                             <input className={style.input} placeholder='Name...' type="text" name='name' value={videogame.name} onChange={handleChange} />
-                            {errors.name && <p>{errors.name}</p>}
+                            {errors.name && <p className={style.validation}>{errors.name}</p>}
                         </div>
                         <br />
                         <div>
                             <input className={style.input} placeholder='Image...' type="text" name="imagen" value={videogame.imagen} onChange={handleChange} />
-                            {errors.imagen && <p>{errors.imagen}</p>}
+                            {errors.imagen && <p className={style.validation}>{errors.imagen}</p>}
                         </div>
                         <br />
                         <div>
                             <input className={style.input} placeholder='Description...' type="text" value={videogame.description} name='description' onChange={handleChange} />
-                            {errors.description && <p>{errors.description}</p>}
+                            {errors.description && <p className={style.validation}>{errors.description}</p>}
                         </div>
                         <br />
                         <div>
                             <input className={style.input} placeholder='Platsform...' type="text" value={videogame.platforms} name='platforms' onChange={handleChange} />
-                            {errors.platforms && <p>{errors.platforms}</p>}
+                            {errors.platforms && <p className={style.validation}>{errors.platforms}</p>}
                         </div>
                         <br />
                         <div>
@@ -112,7 +112,7 @@ const Create = () => {
                                 Date:
                             </label> <br />
                             <input className={style.input} placeholder='name' type="date" value={videogame.date} name='date' onChange={handleChange} />
-                            {errors.date && <p>{errors.date}</p>}
+                            {errors.date && <p className={style.validation}>{errors.date}</p>}
                         </div>
                         <br />
                         <div>
@@ -127,7 +127,7 @@ const Create = () => {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            {errors.rating && <p>{errors.rating}</p>}
+                            {errors.rating && <p className={style.validation}>{errors.rating}</p>}
                         </div>
                         <br />
                         <div >
@@ -144,7 +144,7 @@ const Create = () => {
                                     ))
 
                                 }
-                                {errors.genres && <p>{errors.genres}</p>}
+                                {errors.genres && <p className={style.validation}>{errors.genres}</p>}
                             </div>
                         </div>
                         <div className={style.buttons}>
