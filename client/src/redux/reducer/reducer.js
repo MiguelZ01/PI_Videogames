@@ -10,9 +10,10 @@ import {
 } from "../actions/action-types";
 
 let initialState = {
-   videogames: [],
    genres: [],
    post: [],
+   videogames: [],
+   videogamesTwo: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -21,6 +22,7 @@ const reducer = (state = initialState, action) => {
          return {
             ...state,
             videogames: action.payload,
+            videogamesTwo: action.payload,
          };
 
       case GET_NAME:
@@ -56,7 +58,7 @@ const reducer = (state = initialState, action) => {
       case FILTER:
          return {
             ...state,
-            filter: action.payload,
+            videogames: action.payload,
          };
 
       case POST_VIDEOGAME:
