@@ -28,11 +28,13 @@ const getGameById = async (req, res) => {
          id: datavalue.id,
          name: datavalue.name,
          description: datavalue.description_raw,
-         platforms: JSON.stringify(datavalue.platforms.map((platforms) => platforms.platform.name)),
+         platforms: JSON.stringify(
+            datavalue.platforms.map((platforms) => platforms.platform.name).join(", ")
+         ),
          imagen: datavalue.background_image,
-         date: datavalue.updated,
+         date: datavalue.released,
          rating: datavalue.rating_top,
-         genres: JSON.stringify(datavalue.genres.map((genre) => genre.name)),
+         genres: JSON.stringify(datavalue.genres.map((genre) => genre.name).join("', '")),
       };
 
       return res.status(200).json(getInfo);

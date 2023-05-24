@@ -17,7 +17,7 @@ const postVideogame = async (req, res) => {
       if (!isValidGenres) return res.status(401).json({ error: "Genre invalid" });
 
       if (!name || !description || !platforms || !imagen || !date || !rating || !genres) {
-         return res.status(401).json({ error: "Faltan datos" });
+         return res.status(401).json({ error: "Missing data" });
       }
 
       const [newVideogame, created] = await Videogame.findOrCreate({
@@ -36,7 +36,7 @@ const postVideogame = async (req, res) => {
          },
       });
 
-      if (!created) return res.status(409).send("Videogame existente");
+      if (!created) return res.status(409).send("The videogame already exists.");
       res.status(200).send(newVideogame);
    } catch (error) {
       res.status(500).send(error.message);

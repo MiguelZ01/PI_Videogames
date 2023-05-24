@@ -1,6 +1,5 @@
 const axios = require("axios");
 const { Videogame } = require("../db");
-require("dotenv").config();
 
 const URL = process.env.URL;
 const KEY = process.env.API_KEY;
@@ -21,7 +20,6 @@ const getGames = async (req, res) => {
             created: Database.created,
          };
       });
-      console.log(DataBases);
 
       const iterador = [];
       for (let i = 1; i < 10; i++) {
