@@ -49,9 +49,9 @@ const Card = () => {
                                         return (
                                             <div className={style.container} key={id}>
                                                 <div className={style.card}>
-                                                    <img src={Nintendo} alt="Image not found." className={style.logo} />
+                                                    <img src={Nintendo} alt={name} className={style.logo} />
                                                     <div >
-                                                        <img src={imagen} className={style.imagen} alt="Image not found." />
+                                                        <img src={imagen} className={style.imagen} alt={name} />
                                                     </div>
                                                     <div className={style.front}>
                                                         <NavLink to={`/detail/${id}`} className={style.link}>

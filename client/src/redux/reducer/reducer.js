@@ -11,6 +11,7 @@ import {
 
 let initialState = {
    videogames: [],
+   videogamesTwo: [],
    genres: [],
    post: [],
    filter: [],
@@ -22,12 +23,14 @@ const reducer = (state = initialState, action) => {
          return {
             ...state,
             videogames: action.payload,
+            videogamesTwo: action.payload,
          };
 
       case GET_NAME:
          return {
             ...state,
             videogames: action.payload,
+            videogamesTwo: action.payload,
          };
 
       case ORDER_NAME:
