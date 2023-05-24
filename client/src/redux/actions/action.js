@@ -46,6 +46,7 @@ export const videogamePOST = (videogame) => {
 
 export const GET_detail = (id) => {
    const endpoint = `Videogames/${id}`;
+
    return async (dispatch) => {
       try {
          const { data } = await axios.get(endpoint);
@@ -61,6 +62,7 @@ export const GET_detail = (id) => {
 
 export const GetByName = (name) => {
    const endpoint = `Videogames/name/?name=${name}`;
+
    return async (dispatch) => {
       try {
          const { data } = await axios.get(endpoint);

@@ -57,7 +57,7 @@ const Create = () => {
         if (Object.values(errors).every((error) => error === '')) {
             try {
                 await dispatch(videogamePOST(videogame));
-                window.alert('This videogame was created successfully');
+                window.alert('The videogame was successfully created.');
             } catch (error) {
                 const errorMessage = error.toString().replace(/^Error:\s*/i, '');
                 window.alert(errorMessage);
@@ -89,22 +89,22 @@ const Create = () => {
                         <h3>Welcome to the creation of your own videogame!</h3>
                         <div>
                             <input className={style.input} placeholder='Name...' type="text" name='name' value={videogame.name} onChange={handleChange} />
-                            {errors.name && <p style={{ color: "red" }} >{errors.name}</p>}
+                            {errors.name && <p>{errors.name}</p>}
                         </div>
                         <br />
                         <div>
                             <input className={style.input} placeholder='Image...' type="text" name="imagen" value={videogame.imagen} onChange={handleChange} />
-                            {errors.imagen && <p style={{ color: "red" }} >{errors.imagen}</p>}
+                            {errors.imagen && <p>{errors.imagen}</p>}
                         </div>
                         <br />
                         <div>
                             <input className={style.input} placeholder='Description...' type="text" value={videogame.description} name='description' onChange={handleChange} />
-                            {errors.description && <p style={{ color: "red" }} >{errors.description}</p>}
+                            {errors.description && <p>{errors.description}</p>}
                         </div>
                         <br />
                         <div>
                             <input className={style.input} placeholder='Platsform...' type="text" value={videogame.platforms} name='platforms' onChange={handleChange} />
-                            {errors.platforms && <p style={{ color: "red" }} >{errors.platforms}</p>}
+                            {errors.platforms && <p>{errors.platforms}</p>}
                         </div>
                         <br />
                         <div>
@@ -112,7 +112,7 @@ const Create = () => {
                                 Date:
                             </label> <br />
                             <input className={style.input} placeholder='name' type="date" value={videogame.date} name='date' onChange={handleChange} />
-                            {errors.date && <p style={{ color: "red" }} >{errors.date}</p>}
+                            {errors.date && <p>{errors.date}</p>}
                         </div>
                         <br />
                         <div>
@@ -127,7 +127,7 @@ const Create = () => {
                                 <option value="4">4</option>
                                 <option value="5">5</option>
                             </select>
-                            {errors.rating && <p style={{ color: "red" }} >{errors.rating}</p>}
+                            {errors.rating && <p>{errors.rating}</p>}
                         </div>
                         <br />
                         <div >
@@ -144,7 +144,7 @@ const Create = () => {
                                     ))
 
                                 }
-                                {errors.genres && <p style={{ color: "red" }} >{errors.genres}</p>}
+                                {errors.genres && <p>{errors.genres}</p>}
                             </div>
                         </div>
                         <div className={style.buttons}>

@@ -10,16 +10,19 @@ const Home = () => {
     <div className={style.principal}>
       <div className={style.search}>
         <Navbar />
+
         <div className={style.content}>
           <div>
             <Filter />
           </div>
+
           <NavLink to='/create' className={style.link}>
             <button className={style.button}>
               <span>CREATE</span>
             </button>
           </NavLink>
         </div>
+
         <Card />
       </div>
     </div>

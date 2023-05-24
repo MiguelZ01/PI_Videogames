@@ -1,8 +1,8 @@
 import { useState } from "react";
-import style from './Navbar.module.css';
 import { GetByName } from '../../redux/actions/action';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import style from './Navbar.module.css';
 
 
 const Navbar = () => {
