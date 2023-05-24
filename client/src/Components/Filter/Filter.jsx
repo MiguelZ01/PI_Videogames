@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { GetGenres, filter, DBorAPI, ORDER_RATINGS, ORDER_ALFABETICO } from '../../redux/actions/action'
 import styles from './Filter.module.css';
@@ -35,7 +35,6 @@ const Filter = () => {
     return (
         <div className={styles.content} hover="hover">
             <select className={styles.select} name="GENRES" onChange={handleFilter}>
-                {/* <optgroup label='GENRES'></optgroup> */}
                 <option value="GENRES">
                     Genres
                 </option>

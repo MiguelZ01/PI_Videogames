@@ -12,23 +12,23 @@ import {
 import axios from "axios";
 
 export const videogameGET = () => {
-   try {
-      const endpoint = "http://localhost:3001/Videogames";
+   const endpoint = "Videogames";
 
-      return async (dispatch) => {
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
          return dispatch({
             type: GET_VIDEOGAME,
             payload: data,
          });
-      };
-   } catch (error) {
-      throw new Error(error);
-   }
+      } catch (error) {
+         throw new Error(error);
+      }
+   };
 };
 
 export const videogamePOST = (videogame) => {
-   const endpoint = "http://localhost:3001/Videogames";
+   const endpoint = "Videogames";
 
    return async (dispatch) => {
       try {
@@ -45,7 +45,7 @@ export const videogamePOST = (videogame) => {
 };
 
 export const GET_detail = (id) => {
-   const endpoint = `http://localhost:3001/Videogames/${id}`;
+   const endpoint = `Videogames/${id}`;
    return async (dispatch) => {
       try {
          const { data } = await axios.get(endpoint);
@@ -60,7 +60,7 @@ export const GET_detail = (id) => {
 };
 
 export const GetByName = (name) => {
-   const endpoint = `http://localhost:3001/Videogames/name/?name=${name}`;
+   const endpoint = `Videogames/name/?name=${name}`;
    return async (dispatch) => {
       try {
          const { data } = await axios.get(endpoint);
@@ -75,26 +75,26 @@ export const GetByName = (name) => {
 };
 
 export const GetGenres = () => {
-   try {
-      const endpoint = "http://localhost:3001/genres";
+   const endpoint = "genres";
 
-      return async (dispatch) => {
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
          return dispatch({
             type: GET_GENRES,
             payload: data,
          });
-      };
-   } catch (error) {
-      throw new Error(error);
-   }
+      } catch (error) {
+         throw new Error(error);
+      }
+   };
 };
 
 export const filter = (genre) => {
-   try {
-      const endpoint = "http://localhost:3001/Videogames";
+   const endpoint = "Videogames";
 
-      return async (dispatch) => {
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
 
          if (genre === "GENRES") {
@@ -109,17 +109,17 @@ export const filter = (genre) => {
                payload: filteredData,
             });
          }
-      };
-   } catch (error) {
-      throw new Error(error);
-   }
+      } catch (error) {
+         throw new Error(error);
+      }
+   };
 };
 
 export function DBorAPI(event) {
-   try {
-      const endpoint = "http://localhost:3001/Videogames";
+   const endpoint = "Videogames";
 
-      return async (dispatch) => {
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
          if (event === "ALL") {
             return dispatch({
@@ -141,17 +141,17 @@ export function DBorAPI(event) {
                payload: gamesDB,
             });
          }
-      };
-   } catch (error) {
-      throw new Error(error);
-   }
+      } catch (error) {
+         throw new Error(error);
+      }
+   };
 }
 
 export const ORDER_ALFABETICO = (order) => {
-   try {
-      const endpoint = "http://localhost:3001/Videogames";
+   const endpoint = "Videogames";
 
-      return async (dispatch) => {
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
          if (order === "Default") {
             return dispatch({
@@ -172,17 +172,17 @@ export const ORDER_ALFABETICO = (order) => {
                payload: descendente,
             });
          }
-      };
-   } catch (error) {
-      throw new Error(error);
-   }
+      } catch (error) {
+         throw new Error(error);
+      }
+   };
 };
 
 export const ORDER_RATINGS = (order) => {
-   try {
-      const endpoint = "http://localhost:3001/Videogames";
+   const endpoint = "Videogames";
 
-      return async (dispatch) => {
+   return async (dispatch) => {
+      try {
          const { data } = await axios.get(endpoint);
 
          if (order === "Default") {
@@ -205,8 +205,8 @@ export const ORDER_RATINGS = (order) => {
                payload: descendente,
             });
          }
-      };
-   } catch (error) {
-      throw new Error(error);
-   }
+      } catch (error) {
+         throw new Error(error);
+      }
+   };
 };

@@ -5,8 +5,6 @@ require("dotenv").config();
 const URL = process.env.URL;
 const KEY = process.env.API_KEY;
 
-const games = [];
-
 const getGames = async (req, res) => {
    try {
       const DB = await Videogame.findAll();

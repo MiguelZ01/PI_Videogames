@@ -44,7 +44,7 @@ const getGameByName = async (req, res) => {
       const allVideogames = [...videogamesAPI, ...videogamesDB];
 
       if (allVideogames.length === 0) {
-         return res.status(404).send("No videogames with that name were found.");
+         return res.status(404).send("No video game by that name has been found.");
       }
 
       res.status(200).json(allVideogames);
