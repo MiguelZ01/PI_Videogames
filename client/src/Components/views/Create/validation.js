@@ -1,7 +1,7 @@
 const validation = (genre) => {
    const errors = {};
 
-   if (genre.name.length < 4 || genre.name.length > 15) {
+   if (genre.name.length < 4 || genre.name.length > 50) {
       errors.name = "It must be between 4 to 50 characters long.";
    }
 
@@ -11,7 +11,7 @@ const validation = (genre) => {
 
    if (!genre.description) errors.description = "Please enter a valid description.";
    if (genre.description.length > 170) {
-      errors.description = "You must include a description of less than 120 characters.";
+      errors.description = "You must include a description of less than 170 characters.";
    }
 
    if (!genre.platforms) {
