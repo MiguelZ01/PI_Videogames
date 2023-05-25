@@ -1,7 +1,7 @@
 const axios = require("axios");
 const { Videogame } = require("../db");
-require("dotenv").config();
 
+require("dotenv").config();
 const URL = process.env.URL;
 const KEY = process.env.API_KEY;
 

@@ -1,6 +1,8 @@
 const URL = process.env.URL;
-const axios = require("axios");
 const API_KEY = process.env.API_KEY;
+
+require("dotenv").config();
+const axios = require("axios");
 const { Videogame } = require("../db");
 
 const getGameById = async (req, res) => {
@@ -34,7 +36,7 @@ const getGameById = async (req, res) => {
          imagen: datavalue.background_image,
          date: datavalue.released,
          rating: datavalue.rating_top,
-         genres: JSON.stringify(datavalue.genres.map((genre) => genre.name).join("', '")),
+         genres: JSON.stringify(datavalue.genres.map((genre) => genre.name).join(", ")),
       };
 
       return res.status(200).json(getInfo);

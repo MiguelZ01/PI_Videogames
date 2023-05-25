@@ -1,6 +1,7 @@
 const axios = require("axios");
 const { Genres } = require("../db");
 
+require("dotenv").config();
 const URL_GENRES = process.env.URL_GENRES;
 const KEY = process.env.API_KEY;
 

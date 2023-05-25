@@ -1,7 +1,8 @@
-require("dotenv").config();
 const axios = require("axios");
 const { Videogame } = require("../db");
 const { Op } = require("sequelize");
+
+require("dotenv").config();
 const URL = process.env.URL;
 const API_KEY = process.env.API_KEY;
 
