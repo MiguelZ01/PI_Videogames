@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GetByName, GET_detail } from '../../redux/actions/action';
+import { GET_detail, GetByName } from '../../redux/actions/action';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import style from './Navbar.module.css';
@@ -14,19 +14,19 @@ const Navbar = () => {
         setSearch(event.target.value);
     };
 
-    // const handleSubmit = () => {
-    //     dispatch(GetByName(search))
-    // };
-
-    const handleID = () => {
-        dispatch(GET_detail(search))
+    const handleSubmit = () => {
+        if (search) {
+            dispatch(GetByName(search))
+        } else if (searchID) {
+            dispatch(GET_detail(searchID))
+        }
     };
 
     return (
         <div className={style.wrapper}>
             <input type="search" onChange={handleChange} value={search} className={style.input} />
             <div>
-                <button className={style.submit} onClick={() => { handleID() }}> BUSCAR </button>
+                <button className={style.submit} onClick={() => { handleSubmit() }}> BUSCAR </button>
                 <button className={style.button}>
                     <NavLink to='/' className={style.logout}>
                         <span>Log out</span>
