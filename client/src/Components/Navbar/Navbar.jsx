@@ -9,6 +9,7 @@ const Navbar = () => {
 
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
+    const [searchID, setSearchID] = useState("");
 
     const handleChange = (event) => {
         setSearch(event.target.value);
