@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GetByName } from '../../redux/actions/action';
+import { GetByName, GET_detail } from '../../redux/actions/action';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import style from './Navbar.module.css';
@@ -15,7 +15,7 @@ const Navbar = () => {
     };
 
     const handleSubmit = () => {
-        dispatch(GetByName(search))
+        dispatch(GetByName(search), GET_detail(search))
     };
 
     return (
