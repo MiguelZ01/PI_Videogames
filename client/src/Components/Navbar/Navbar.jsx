@@ -14,9 +14,9 @@ const Navbar = () => {
         setSearch(event.target.value);
     };
 
-    const handleSubmit = () => {
-        dispatch(GetByName(search))
-    };
+    // const handleSubmit = () => {
+    //     dispatch(GetByName(search))
+    // };
 
     const handleID = () => {
         dispatch(GET_detail(search))
@@ -26,7 +26,7 @@ const Navbar = () => {
         <div className={style.wrapper}>
             <input type="search" onChange={handleChange} value={search} className={style.input} />
             <div>
-                <button className={style.submit} onClick={() => { handleSubmit() }} forID={() => { handleID() }}> BUSCAR </button>
+                <button className={style.submit} onClick={() => { handleID() }}> BUSCAR </button>
                 <button className={style.button}>
                     <NavLink to='/' className={style.logout}>
                         <span>Log out</span>
