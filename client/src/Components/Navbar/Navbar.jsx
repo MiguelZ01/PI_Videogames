@@ -15,7 +15,7 @@ const Navbar = () => {
     };
 
     const handleSubmit = () => {
-        dispatch(GetByName(search))
+        dispatch(GetByName(search), GET_detail(search))
     };
 
     return (
