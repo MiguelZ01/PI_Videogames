@@ -15,14 +15,18 @@ const Navbar = () => {
     };
 
     const handleSubmit = () => {
-        dispatch(GetByName(search), GET_detail(search))
+        dispatch(GetByName(search))
+    };
+
+    const handleID = () => {
+        dispatch(GET_detail(search))
     };
 
     return (
         <div className={style.wrapper}>
             <input type="search" onChange={handleChange} value={search} className={style.input} />
             <div>
-                <button className={style.submit} onClick={() => { handleSubmit() }}> BUSCAR </button>
+                <button className={style.submit} onClick={() => { handleSubmit() }} forID={() => { handleID() }}> BUSCAR </button>
                 <button className={style.button}>
                     <NavLink to='/' className={style.logout}>
                         <span>Log out</span>
