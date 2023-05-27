@@ -9,18 +9,14 @@ const Navbar = () => {
 
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
-    const [searchID, setSearchID] = useState("");
-
     const handleChange = (event) => {
         setSearch(event.target.value);
     };
 
     const handleSubmit = () => {
-        if (search) {
-            dispatch(GetByName(search))
-        } else if (searchID) {
-            dispatch(GET_detail(searchID))
-        }
+
+        dispatch(GetByName(search))
+
     };
 
     return (
