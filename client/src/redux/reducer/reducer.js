@@ -13,7 +13,7 @@ let initialState = {
    genres: [],
    post: [],
    videogames: [],
-   videogamesTwo: [],
+   // videogamesTwo: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -22,14 +22,14 @@ const reducer = (state = initialState, action) => {
          return {
             ...state,
             videogames: action.payload,
-            videogamesTwo: action.payload,
+            // videogamesTwo: action.payload,
          };
 
       case GET_NAME:
          return {
             ...state,
             videogames: action.payload,
-            videogamesTwo: action.payload,
+            // videogamesTwo: action.payload,
          };
 
       case ORDER_NAME:
@@ -56,11 +56,11 @@ const reducer = (state = initialState, action) => {
             genres: action.payload,
          };
 
-      case FILTER:
-         return {
-            ...state,
-            filter: action.payload,
-         };
+      // case FILTER:
+      //    return {
+      //       ...state,
+      //       videogames: action.payload,
+      //    };
 
       case POST_VIDEOGAME:
          return {
