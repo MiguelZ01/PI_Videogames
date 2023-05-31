@@ -56,11 +56,11 @@ const reducer = (state = initialState, action) => {
             genres: action.payload,
          };
 
-      // case FILTER:
-      //    return {
-      //       ...state,
-      //       videogames: action.payload,
-      //    };
+      case FILTER:
+         return {
+            ...state,
+            filter: action.payload,
+         };
 
       case POST_VIDEOGAME:
          return {
