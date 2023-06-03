@@ -2,6 +2,7 @@
    display: grid;
    grid-template-columns: repeat(5, 1fr);
    position: absolute;
+   width: 40%;
    top: 20px;
 }
 
