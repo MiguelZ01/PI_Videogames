@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <div className={style.principal}>
       <div className={style.search}>
-        <Navbar />
 
         <div className={style.content}>
           <div>
@@ -21,6 +20,8 @@ const Home = () => {
               <span>CREATE</span>
             </button>
           </NavLink>
+          <Navbar />
+
         </div>
 
         <Card />

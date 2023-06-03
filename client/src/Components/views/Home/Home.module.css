@@ -10,9 +10,6 @@
 }
 
 .button {
-   position: relative;
-   top: -45px;
-   left: -230px;
    width: 100px;
    height: 46px;
    display: flex;
