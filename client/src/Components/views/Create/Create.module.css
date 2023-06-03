@@ -97,11 +97,6 @@
    width: 200px;
 }
 
-.button:hover::after {
-   right: auto;
-   left: 0;
-   width: 100%;
-}
 .link {
    margin-left: 10px;
 }
@@ -138,4 +133,10 @@
 
 .validation {
    color: red;
+}
+
+.button:hover::after {
+   right: auto;
+   left: 0;
+   width: 100%;
 }
