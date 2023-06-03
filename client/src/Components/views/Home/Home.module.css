@@ -4,10 +4,6 @@
    color: #ffffff;
    padding: 20px;
 }
-.content {
-   display: grid;
-   grid-template-columns: repeat(3, 1fr);
-}
 
 .filter {
    width: 30%;
