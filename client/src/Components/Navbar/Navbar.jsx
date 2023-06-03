@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GET_detail, GetByName } from '../../redux/actions/action';
+import { GetByName } from '../../redux/actions/action';
 import { useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import style from './Navbar.module.css';
@@ -9,6 +9,7 @@ const Navbar = () => {
 
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
+
     const handleChange = (event) => {
         setSearch(event.target.value);
     };
