@@ -8,13 +8,13 @@ const Home = () => {
   return (
     <div className={style.principal}>
       <div className={style.search}>
-        <Navbar />
 
         <div className={style.content}>
           <div>
             <Filter />
           </div>
         </div>
+        <Navbar />
 
         <Card />
       </div>

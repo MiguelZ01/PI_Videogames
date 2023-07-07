@@ -6,6 +6,26 @@
    top: 20px;
 }
 
+@media (max-width: 1180px) {
+   .content {
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      top: -5px;
+      margin-left: 19%;
+   }
+}
+
+@media (max-width: 796px) {
+   .content {
+      display: flex;
+      justify-content: flex-start;
+      position: relative;
+      top: -5px;
+      margin-left: 3%;
+   }
+}
+
 .select {
    cursor: pointer;
    position: relative;

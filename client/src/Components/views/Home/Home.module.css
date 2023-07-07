@@ -7,4 +7,6 @@
 
 .filter {
    width: 30%;
+   display: block;
+   margin-bottom: 1em;
 }

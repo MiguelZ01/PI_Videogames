@@ -4,7 +4,7 @@
 }
 
 .input {
-   min-height: 45px;
+   height: 45px;
    width: 350px;
    padding: 0 1rem;
    color: #fff;
@@ -12,6 +12,41 @@
    border: 1px solid #006fff;
    border-radius: 6px 0 0 6px;
    background-color: transparent;
+}
+
+@media (max-width: 1180px) {
+   .wrapper {
+      display: flex;
+      justify-content: center;
+   }
+
+   .input {
+      width: 76%;
+   }
+}
+
+@media (max-width: 950px) {
+   .wrapper {
+      display: flex;
+      justify-content: center;
+   }
+
+   .input {
+      width: 53%;
+      margin-left: 9.5%;
+   }
+}
+
+@media (max-width: 796px) {
+   .wrapper {
+      display: flex;
+      justify-content: center;
+   }
+
+   .input {
+      width: 50%;
+      margin-left: 5%;
+   }
 }
 
 .submit {

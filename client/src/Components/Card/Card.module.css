@@ -3,26 +3,28 @@
    width: 97%;
    display: grid;
    grid-template-columns: repeat(3, 1fr);
+   /* grid-template-columns: repeat(auto-fix, minmax(150px, 1fr)); */
+   /* gap: 32px; */
    margin-left: 15px;
 }
 
 .imagen {
-   width: 309px;
-   height: 182px;
    position: relative;
-   right: -1px;
-   top: -150px;
+   top: -158px;
+   width: 323px;
+   height: 190px;
 }
 
 .logo {
    position: relative;
-   width: 600px;
+   width: 500px;
+   height: 400px;
    top: 100px;
-   margin-right: -120px;
 }
 
 .card {
-   width: 450px;
+   width: 100%;
+   /* height: 190px; */
    height: 350px;
    margin: 10px;
    border-radius: 8px;
@@ -46,4 +48,27 @@
 .card .front .link:hover {
    text-decoration: none;
    color: #ccc;
+}
+
+@media (max-width: 1493px) {
+   .principal {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-around;
+   }
+
+   .card {
+      width: 430px;
+      margin: 10px;
+   }
+}
+
+@media (max-width: 1431px) {
+   .principal {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+   }
 }
