@@ -5,7 +5,7 @@ import Landing from "./Components/views/Landing/Landing";
 import Create from "./Components/views/Create/Create";
 import Error from "./Components/Error/Error";
 import axios from "axios";
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://videogames-45mq.onrender.com/";
 
 function App() {
    return (
